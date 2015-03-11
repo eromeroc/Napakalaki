@@ -12,8 +12,7 @@ import java.util.ArrayList;
  */
 
 /**
- *
- * @author usuario
+ * @author Marta Verona y Elena Romero
  */
 public class BadConsequence {
     
@@ -31,16 +30,20 @@ public class BadConsequence {
         this.levels = levels;
         this.nHiddenTreasures = nHidden;
         this.nVisibleTreasures = nVisible;
+        this.death = false;
     }
     
     public BadConsequence(String text, boolean death){
         this.text = text;
         this.death = death;
+        this.nHiddenTreasures = 0;
+        this.nVisibleTreasures = 0;
     }
     
     public BadConsequence(String text, int levels,ArrayList<TreasureKind> tVisible, ArrayList<TreasureKind> tHidden){
         this.text = text;
         this.levels = levels;
+        this.death = false;
         this.specificHiddenTreasures = tHidden;
         this.specificVisibleTreasures = tVisible;
     }

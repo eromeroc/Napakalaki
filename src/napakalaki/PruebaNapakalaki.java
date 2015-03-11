@@ -5,6 +5,9 @@
  */
 package napakalaki;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  *
  * @author usuario
@@ -15,24 +18,26 @@ public class PruebaNapakalaki {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         
-        String nombre = "El gorrón en el umbral";
-        int nivel = 10;
-        int nivelesQuePierde = 1;
-        String malRollo = "Pierdes todos tus tesoros visibles";
-        boolean death = false;
-        int nTesorosVisibles = 3;
-        int nTesorosOcultos = 500;
+        ArrayList<Monster> monstruos = new ArrayList();
         
+        /**
+         * Crea monstruo "3 Byakhees de bonanza"
+         */
+
+        BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta", 0,      
+        new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
         
-        BadConsequence malRollito = new BadConsequence(malRollo, nivelesQuePierde, nTesorosVisibles, nTesorosOcultos);
-        Prize premio = new Prize(nivelesQuePierde, nTesorosVisibles);
-        Monster monstruito = new Monster(nombre, nivel, malRollito, premio);
+        Prize prize = new Prize(2,1);
         
-        System.out.println(malRollito.toString());
-        System.out.println(premio.toString());
-        System.out.println(monstruito.toString());
+        monstruos.add(new Monster("3 Byakhees de bonanza", 8, badConsequence, prize));
+        
+        /**
+         * Crea monstruo: "Chibithulhu"
+         */
+        
+        badConsequence = new BadConsequence("Embobados con el lindo primigenio te descartas de tus casco visible",
+        0, new ArrayList(Arrays.asList(TreasureKind.HELMET)), new)
     }
     
 }
