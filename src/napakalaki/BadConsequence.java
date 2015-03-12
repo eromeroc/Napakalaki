@@ -5,12 +5,6 @@ import napakalaki.TreasureKind;
 import java.util.ArrayList;
 
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * @author Marta Verona y Elena Romero
  */
@@ -67,6 +61,7 @@ public class BadConsequence {
     public boolean getDeath(){
         return death;
     }
+    
     public String arrayToString(ArrayList<TreasureKind> kindList){
         String aux = "\n";
         for(TreasureKind k: kindList){
