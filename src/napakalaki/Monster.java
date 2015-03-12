@@ -35,7 +35,11 @@ public class Monster {
         return combatLevel;
     }
     
+    public BadConsequence getBadConsequence(){
+        return bc;
+    }
+    
     public String toString(){
-        return "Name =" +name+ "levels =" +Integer.toString(combatLevel)+ "Prize =" +price.toString()+ "BadConsequence =" +bc.toString();
+        return "\nName =" +name+ "\nLevels =" +Integer.toString(combatLevel)+ "\nPrize =" +price.toString()+ "\nBadConsequence =" +bc.toString();
     }
 }

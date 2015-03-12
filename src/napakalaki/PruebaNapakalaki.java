@@ -12,6 +12,9 @@ import java.util.Arrays;
  *
  * @author usuario
  */
+import napakalaki.CartasMonstruos;
+import napakalaki.Monster;
+
 public class PruebaNapakalaki {
 
     /**
@@ -19,25 +22,13 @@ public class PruebaNapakalaki {
      */
     public static void main(String[] args) {
         
-        ArrayList<Monster> monstruos = new ArrayList();
+        ArrayList<Monster> aux1 = new ArrayList();
+        ArrayList<Monster> aux2 = new ArrayList();
+        ArrayList<Monster> aux3 = new ArrayList();
+        ArrayList<Monster> aux4 = new ArrayList();
+        CartasMonstruos monstruos = new CartasMonstruos();
         
-        /**
-         * Crea monstruo "3 Byakhees de bonanza"
-         */
-
-        BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta", 0,      
-        new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
-        
-        Prize prize = new Prize(2,1);
-        
-        monstruos.add(new Monster("3 Byakhees de bonanza", 8, badConsequence, prize));
-        
-        /**
-         * Crea monstruo: "Chibithulhu"
-         */
-        
-        badConsequence = new BadConsequence("Embobados con el lindo primigenio te descartas de tus casco visible",
-        0, new ArrayList(Arrays.asList(TreasureKind.HELMET)), new)
+        System.out.println(monstruos.getMonstruos().toString());
     }
     
 }
