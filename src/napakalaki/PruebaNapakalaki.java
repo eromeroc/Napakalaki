@@ -29,6 +29,7 @@ public class PruebaNapakalaki {
         CartasMonstruos monstruos = new CartasMonstruos();
         
         System.out.println(monstruos.getMonstruos().toString());
+        
     }
     
 }
