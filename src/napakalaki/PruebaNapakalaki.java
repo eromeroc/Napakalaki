@@ -30,7 +30,6 @@ public class PruebaNapakalaki {
         
         System.out.println(monstruos.getMonstruos().toString());
         
-        System.out.println("holi");
     }
     
 }
