@@ -173,51 +173,53 @@ public class CartasMonstruos {
         return monstruos;
     }
     
+    //Monstruos cuyo nivel es mayor que 10
     public ArrayList<Monster> levelMayorQue10(){
-        ArrayList<Monster> monstruitos = new ArrayList<Monster>() ;
+        ArrayList<Monster> listaMonstruos = new ArrayList<Monster>() ;
         
         for(Monster k: monstruos){
             if((k.getCombatLevel()) > 10){
-                monstruitos.add(k);
+                listaMonstruos.add(k);
             }
         }
-        return monstruitos;
+        return listaMonstruos;
     }
-
+    
+    //Monstruos que solo pierden un nivel en su mal rollo
     public ArrayList<Monster> soloPierdenNivel(){
-        ArrayList<Monster> monstruitos = new ArrayList<Monster>() ;
+        ArrayList<Monster> listaMonstruos = new ArrayList<Monster>() ;
         
         for(Monster k: monstruos){
             if((k.getBadConsequence().getLevels() > 0) && (k.getBadConsequence().getnHiddenTreasures() == 0)
                     && (k.getBadConsequence().getnVisibleTreasures() == 0)){
-                monstruitos.add(k);
+                listaMonstruos.add(k);
             }
         }
-        return monstruitos;
+        return listaMonstruos;
     }
    
-    //Su buen rollo indique una ganancia de niveles superior a 1
+    //Monstruos cuyo buen rollo indique una ganancia de niveles superior a 1
     public ArrayList<Monster> NivelMayorQueUno(){
-        ArrayList<Monster> monstruitos = new ArrayList<Monster>() ;
+        ArrayList<Monster> listaMonstruos = new ArrayList<Monster>() ;
         for(Monster k: monstruos){
             if(k.getBadConsequence().getLevels() > 1){
-                monstruitos.add(k);
+                listaMonstruos.add(k);
             }
         }
         
-        return monstruitos;
+        return listaMonstruos;
     }
     
-    //Cuyo mal rollo suponga la pérdida de al menos un tesoro tipo ONEHAND ya sea visible u oculto.
+    //Monstruos cuyo mal rollo suponga la pérdida de al menos un tesoro tipo ONEHAND ya sea visible u oculto.
     public ArrayList<Monster> PierdesUnTesoro(){
-        ArrayList<Monster> monstruitos = new ArrayList<Monster>();
+        ArrayList<Monster> listaMonstruos = new ArrayList<Monster>();
         
         for(Monster k: monstruos){
             if((k.getBadConsequence().getnHiddenTreasures() >= 1) | (k.getBadConsequence().getnVisibleTreasures()>= 1)){
-                monstruitos.add(k);
+                listaMonstruos.add(k);
             }
         }
-        return monstruitos;
+        return listaMonstruos;
     }
     
     public String toString(ArrayList<Monster> array_monstruo){

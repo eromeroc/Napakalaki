@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package napakalaki;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- *
- * @author usuario
+ * @author Elena Romero y Marta Verona
  */
 import napakalaki.CartasMonstruos;
 import napakalaki.Monster;
@@ -21,14 +15,18 @@ public class PruebaNapakalaki {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        ArrayList<Monster> aux1 = new ArrayList();
-        ArrayList<Monster> aux2 = new ArrayList();
-        ArrayList<Monster> aux3 = new ArrayList();
-        ArrayList<Monster> aux4 = new ArrayList();
+       
         CartasMonstruos monstruos = new CartasMonstruos();
         
-        System.out.println(monstruos.getMonstruos().toString());
+        System.out.println("Cartas monstruos: \n"+ monstruos.toString(monstruos.getMonstruos())+"\n\n");
+        System.out.println("\nMonstruos que ganan más de un nivel: \n"+
+                monstruos.toString(monstruos.NivelMayorQueUno())+"\n\n");
+        System.out.println("\nMonstruos con nivel mayor que 10: \n"+
+                monstruos.toString(monstruos.levelMayorQue10()));
+        System.out.println("\nMonstruos que pierden al menos un tesoro tipo ONEHAND: \n"+
+                monstruos.toString(monstruos.PierdesUnTesoro()));
+        System.out.println("\nMonstruos que solo pierden niveles: \n"+
+                monstruos.toString(monstruos.soloPierdenNivel()));
         
     }
     
