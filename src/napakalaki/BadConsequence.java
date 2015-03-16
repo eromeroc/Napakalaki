@@ -64,8 +64,14 @@ public class BadConsequence {
     
     public String arrayToString(ArrayList<TreasureKind> kindList){
         String aux = "\n";
-        for(TreasureKind k: kindList){
-            aux=aux+k.toString();
+        
+        if(kindList.isEmpty()){
+            aux = "Vacio";
+        }
+        else{
+            for(TreasureKind k: kindList){
+                aux+= k.toString() + ", ";
+            }
         }
         return aux;
     }
