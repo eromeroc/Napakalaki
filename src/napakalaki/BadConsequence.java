@@ -25,6 +25,10 @@ public class BadConsequence {
         this.nHiddenTreasures = nHidden;
         this.nVisibleTreasures = nVisible;
         this.death = false;
+        
+        specificHiddenTreasures = new ArrayList<TreasureKind>();
+        specificVisibleTreasures = new ArrayList<TreasureKind>();
+        
     }
     
     public BadConsequence(String text, boolean death){
@@ -32,6 +36,9 @@ public class BadConsequence {
         this.death = death;
         this.nHiddenTreasures = 0;
         this.nVisibleTreasures = 0;
+        
+        specificHiddenTreasures = new ArrayList<TreasureKind>();
+        specificVisibleTreasures = new ArrayList<TreasureKind>();
     }
     
     public BadConsequence(String text, int levels,ArrayList<TreasureKind> tVisible, ArrayList<TreasureKind> tHidden){
@@ -40,6 +47,9 @@ public class BadConsequence {
         this.death = false;
         this.specificHiddenTreasures = tHidden;
         this.specificVisibleTreasures = tVisible;
+        
+        nHiddenTreasures = 0;
+        nVisibleTreasures = 0;
     }
     
     public String getText(){
@@ -63,10 +73,10 @@ public class BadConsequence {
     }
     
     public String arrayToString(ArrayList<TreasureKind> kindList){
-        String aux = "\n";
+        String aux = " ";
         
         if(kindList.isEmpty()){
-            aux = "Vacio";
+            aux = "Ninguno";
         }
         else{
             for(TreasureKind k: kindList){
