@@ -24,7 +24,7 @@ public class PruebaNapakalaki {
         System.out.println("\nMonstruos con nivel mayor que 10: \n"+
                 monstruos.toString(monstruos.levelMayorQue10()));
         System.out.println("\nMonstruos que pierden al menos un tesoro tipo ONEHAND: \n"+
-                monstruos.toString(monstruos.PierdesUnTesoro()));
+                monstruos.toString(monstruos.pierdeOnehand()));
         System.out.println("\nMonstruos que solo pierden niveles: \n"+
                 monstruos.toString(monstruos.soloPierdenNivel()));
         

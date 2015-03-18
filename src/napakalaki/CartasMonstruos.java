@@ -211,12 +211,19 @@ public class CartasMonstruos {
     }
     
     //Monstruos cuyo mal rollo suponga la pérdida de al menos un tesoro tipo ONEHAND ya sea visible u oculto.
-    public ArrayList<Monster> PierdesUnTesoro(){
+    public ArrayList<Monster> pierdeOnehand(){
         ArrayList<Monster> listaMonstruos = new ArrayList<Monster>();
         
-        for(Monster k: monstruos){
-            if((k.getBadConsequence().getnHiddenTreasures() >= 1) | (k.getBadConsequence().getnVisibleTreasures()>= 1)){
-                listaMonstruos.add(k);
+        for(Monster m: monstruos){
+            for(TreasureKind k: m.getBadConsequence().getSpecificHiddenTreasures()){
+                if(k == TreasureKind.ONEHAND){
+                  listaMonstruos.add(m);
+                }   
+            }
+            for(TreasureKind k: m.getBadConsequence().getSpecificVisibleTreasures()){
+                if(k == TreasureKind.ONEHAND){
+                  listaMonstruos.add(m);
+                }
             }
         }
         return listaMonstruos;
