@@ -19,9 +19,27 @@ public class CardDealer {
     ArrayList<Treasure> usedTreasures;   //0*
     
     
-    CardDealer(){
-        
+    
+    private static CardDealer INSTANCE = null;
+ 
+    // Private constructor suppresses 
+    private CardDealer(){}
+ 
+    // creador sincronizado para protegerse de posibles problemas  multi-hilo
+    // otra prueba para evitar instanciación múltiple 
+    private synchronized static void createInstance() {
+        if (INSTANCE == null) { 
+            INSTANCE = new CardDealer();
+        }
     }
+ 
+    public static CardDealer getInstance() {
+        if (INSTANCE == null) createInstance();
+        return INSTANCE;
+    }
+    
+    
+   
     
     private void initTreasureCardDeck(){
         //Creo que aqui hay que poner las cartas de tesoros
@@ -39,9 +57,6 @@ public class CardDealer {
         
     }
     /*
-    public CardDealer getInstance(){
-        
-    }
     
     public Treasure nextTreasure(){
         

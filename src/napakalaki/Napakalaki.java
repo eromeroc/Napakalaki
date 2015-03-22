@@ -12,13 +12,41 @@ import java.util.ArrayList;
  * @author sagrario
  */
 public class Napakalaki {
-    //CREO
-    Monster currentMonster; // 0 o 1
-//    Player currentPlayer;   // 0 ó 1
-//    ArrayList<Player> player;          // 1 o más    o un arrayList?
+     //CREO
+    private Monster currentMonster; // 0 o 1
+    private Player currentPlayer;   // 0 ó 1
+    private ArrayList<Player> player;          // 1 o más    o un arrayList?
     
     //CombatResult          con lineas
     //CardDealer            discontinuas
+    
+    
+    
+    
+    
+    
+    private static  Napakalaki INSTANCE = null;
+ 
+    // Private constructor suppresses 
+    private  Napakalaki(){}
+ 
+    // creador sincronizado para protegerse de posibles problemas  multi-hilo
+    // otra prueba para evitar instanciación múltiple 
+    private synchronized static void createInstance() {
+        if (INSTANCE == null) { 
+            INSTANCE = new  Napakalaki();
+        }
+    }
+ 
+    public static  Napakalaki getInstance() {
+        if (INSTANCE == null) createInstance();
+        return INSTANCE;
+    }
+    
+    
+    
+    
+   
     
     
     private void initPlayers(String[]  names){
