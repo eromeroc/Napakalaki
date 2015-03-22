@@ -15,7 +15,8 @@ public class PruebaNapakalaki {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
+     
+        /*
         CartasMonstruos monstruos = new CartasMonstruos();
         
         System.out.println("Cartas monstruos: \n"+ monstruos.toString(monstruos.getMonstruos())+"\n\n");
@@ -27,6 +28,8 @@ public class PruebaNapakalaki {
                 monstruos.toString(monstruos.pierdeOnehand()));
         System.out.println("\nMonstruos que solo pierden niveles: \n"+
                 monstruos.toString(monstruos.soloPierdenNivel()));
+                
+                */
         
     }
     
