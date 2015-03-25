@@ -42,11 +42,11 @@ public class CardDealer {
     }
     
     private void shuffleTreasures(){
-        //NO SE
+        //Baraja
     }
     
     private void shuffleMonsters(){
-        
+        //Baraja
     }
     /*
     
@@ -59,11 +59,11 @@ public class CardDealer {
     }
     */
     public void giveTreasureBack( Treasure t){
-        
+        //Introduce en el mazo de descartes de tesoros (usedTreasures) el tesoro t.
     }
     
     public void giveMonsterBack(Monster m){
-        
+        //Introduce en el mazo de descartes de monstruos (usedMonsters) al monstruo m.
     }
     
     public void initCards(){

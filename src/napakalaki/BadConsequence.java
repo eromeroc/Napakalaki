@@ -80,6 +80,17 @@ public class BadConsequence {
         return death;
     }
     
+    public boolean isEmpty(){
+        //Devuelve true cuando el mal rollo está vacío. Eso significa que el conjunto de
+//atributos del mal rollo indican que no hay mal rollo que cumplir, plantéate qué
+//valores deberán tener.
+        return true;
+    }
+    
+    public boolean kills(){
+        return death;
+    }
+    
     public String arrayToString(ArrayList<TreasureKind> kindList){
         String aux = " ";
         

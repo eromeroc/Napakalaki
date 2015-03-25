@@ -39,6 +39,10 @@ public class Monster {
         return bc;
     }
     
+    public Prize getPrice(){
+        return price;
+    }
+    
     public String toString(){
         return "\nName =" +name+ "\nLevels =" +Integer.toString(combatLevel)+ "\nPrize =" +price.toString()+ "\nBadConsequence =" +bc.toString();
     }
