@@ -20,33 +20,21 @@ public class Napakalaki {
     //CombatResult          con lineas
     //CardDealer            discontinuas
     
-    
-    
-    
-    
-    
-    private static  Napakalaki INSTANCE = null;
+    private static  final Napakalaki instance = new Napakalaki();
  
     // Private constructor suppresses 
-    private  Napakalaki(){}
- 
-    // creador sincronizado para protegerse de posibles problemas  multi-hilo
-    // otra prueba para evitar instanciación múltiple 
-    private synchronized static void createInstance() {
-        if (INSTANCE == null) { 
-            INSTANCE = new  Napakalaki();
-        }
+    private  Napakalaki(){
+        player = new ArrayList<Player>();
+        //currenPlayer = new Player();
+        //currentMonster = new Monster();
     }
+
+        
+    
  
     public static  Napakalaki getInstance() {
-        if (INSTANCE == null) createInstance();
-        return INSTANCE;
+        return instance;
     }
-    
-    
-    
-    
-   
     
     
     private void initPlayers(String[]  names){
@@ -66,7 +54,7 @@ public class Napakalaki {
     }
     */
     public  void discardVisibleTreasure(Treasure t ){
-    
+        
     }   
     
     public  void discardHiddenTreasure(Treasure t ){
