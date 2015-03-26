@@ -19,6 +19,17 @@ public class BadConsequence {
     private ArrayList<TreasureKind> specificHiddenTreasures;
     private ArrayList<TreasureKind> specificVisibleTreasures;
     
+    public BadConsequence(){
+        text = " ";
+        levels = 0;
+        nHiddenTreasures = 0;
+        nVisibleTreasures = 0;
+        death = false;
+        specificHiddenTreasures = new ArrayList<TreasureKind>();
+        specificVisibleTreasures = new ArrayList<TreasureKind>();
+        
+    }
+    
     public BadConsequence(String text, int levels, int nVisible, int nHidden){
         this.text = text;
         this.levels = levels;
@@ -81,10 +92,17 @@ public class BadConsequence {
     }
     
     public boolean isEmpty(){
+        boolean respuesta;
+        if ((text == " ") && (nVisibleTreasures == 0) && (nHiddenTreasures == 0) && (specificHiddenTreasures == new ArrayList<TreasureKind>()) && (specificVisibleTreasures == new ArrayList<TreasureKind>()) && (death  == false)){
+            respuesta = true;
+        }
+        else
+            respuesta = false;
+        return respuesta;
+    
         //Devuelve true cuando el mal rollo está vacío. Eso significa que el conjunto de
 //atributos del mal rollo indican que no hay mal rollo que cumplir, plantéate qué
 //valores deberán tener.
-        return true;
     }
     
     public boolean kills(){

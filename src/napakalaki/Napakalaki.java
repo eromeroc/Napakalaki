@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author sagrario
  */
 public class Napakalaki {
-     //CREO
+    
     private Monster currentMonster; // 0 o 1
     private Player currentPlayer;   // 0 ó 1
     private ArrayList<Player> player;          // 1 o más    o un arrayList?
@@ -20,23 +20,25 @@ public class Napakalaki {
     //CombatResult          con lineas
     //CardDealer            discontinuas
     
-    private static  final Napakalaki instance = new Napakalaki();
+    private static  Napakalaki instance = null;
  
-    // Private constructor suppresses 
+    
+    // Private constructor por defecto
     private  Napakalaki(){
         player = new ArrayList<Player>();
-        //currenPlayer = new Player();
-        //currentMonster = new Monster();
+        currentPlayer = null;
+        currentMonster = null;
     }
 
-        
     
- 
     public static  Napakalaki getInstance() {
+        if (instance == null){
+                instance = new Napakalaki();
+        }
         return instance;
     }
     
-    
+    //Inicializa jugadores (el objeto players)
     private void initPlayers(String[]  names){
         
     }
@@ -45,12 +47,10 @@ public class Napakalaki {
         
     }
     
-    public Napakalaki getInstance(){
-        
-    }
+    
     
     public CombatResult combat() {
-        
+        //Aqui se usa CombatResult (discontinuas)
     }
     */
     public  void discardVisibleTreasure(Treasure t ){

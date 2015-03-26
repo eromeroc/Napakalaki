@@ -8,6 +8,9 @@ import java.util.Arrays;
  */
 import napakalaki.CartasMonstruos;
 import napakalaki.Monster;
+import napakalaki.CardDealer;
+import napakalaki.Napakalaki;
+import napakalaki.Treasure;
 
 public class PruebaNapakalaki {
 
@@ -15,21 +18,21 @@ public class PruebaNapakalaki {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-     
-        /*
-        CartasMonstruos monstruos = new CartasMonstruos();
+    
+        /* 
+        CardDealer cartas = CardDealer.getInstance();
+        cartas.initCards();
+        System.out.println("Prueba CardDealer");
+      */
         
-        System.out.println("Cartas monstruos: \n"+ monstruos.toString(monstruos.getMonstruos())+"\n\n");
-        System.out.println("\nMonstruos que ganan más de un nivel: \n"+
-                monstruos.toString(monstruos.NivelMayorQueUno())+"\n\n");
-        System.out.println("\nMonstruos con nivel mayor que 10: \n"+
-                monstruos.toString(monstruos.levelMayorQue10()));
-        System.out.println("\nMonstruos que pierden al menos un tesoro tipo ONEHAND: \n"+
-                monstruos.toString(monstruos.pierdeOnehand()));
-        System.out.println("\nMonstruos que solo pierden niveles: \n"+
-                monstruos.toString(monstruos.soloPierdenNivel()));
-                
-                */
+        
+        /*
+        Napakalaki napa = Napakalaki.getInstance();
+        System.out.println("Prueba Napakalaki");
+        */
+        
+        Treasure tesoros = new Treasure("nombre",3,4,5, TreasureKind.ARMOR );
+        System.out.println("Prueba Treasure");
         
     }
     
