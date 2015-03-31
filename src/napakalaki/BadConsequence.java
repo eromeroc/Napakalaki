@@ -1,6 +1,5 @@
 package napakalaki;
 
-
 import napakalaki.TreasureKind;
 import java.util.ArrayList;
 
@@ -10,15 +9,17 @@ import java.util.ArrayList;
  */
 public class BadConsequence {
     
-    private String text; //Mal rollo
-    private int levels; //Niveles que se pierden
-    private int nHiddenTreasures; //Nº tesoros ocultos que se pierden
-    private int nVisibleTreasures; //Nº tesoros visibles que se pierden
-    private boolean death; //Mal rollo de tipo muerte
+    private String text;            //Mal rollo
+    private int levels;             //Niveles que se pierden
+    private int nHiddenTreasures;   //Nº tesoros ocultos que se pierden
+    private int nVisibleTreasures;  //Nº tesoros visibles que se pierden
+    private boolean death;          //Mal rollo de tipo muerte
     
     private ArrayList<TreasureKind> specificHiddenTreasures;
     private ArrayList<TreasureKind> specificVisibleTreasures;
     
+    /***CONSTRUCTORES***/
+  
     public BadConsequence(){
         text = " ";
         levels = 0;
@@ -26,8 +27,7 @@ public class BadConsequence {
         nVisibleTreasures = 0;
         death = false;
         specificHiddenTreasures = new ArrayList<TreasureKind>();
-        specificVisibleTreasures = new ArrayList<TreasureKind>();
-        
+        specificVisibleTreasures = new ArrayList<TreasureKind>();        
     }
     
     public BadConsequence(String text, int levels, int nVisible, int nHidden){
@@ -39,7 +39,6 @@ public class BadConsequence {
         
         specificHiddenTreasures = new ArrayList<TreasureKind>();
         specificVisibleTreasures = new ArrayList<TreasureKind>();
-        
     }
     
     public BadConsequence(String text, boolean death){
@@ -62,6 +61,8 @@ public class BadConsequence {
         nHiddenTreasures = 0;
         nVisibleTreasures = 0;
     }
+    
+    /***CONSULTORES***/
     
     public String getText(){
         return text;
@@ -91,23 +92,39 @@ public class BadConsequence {
         return death;
     }
     
+    /**
+     * Devuelve true cuando el mal rollo está vacío, es decir, el conjunto de atributos
+     * de mal rollo indican que no hay mal rollo que cumplir
+     */
     public boolean isEmpty(){
         boolean respuesta;
-        if ((text == " ") && (nVisibleTreasures == 0) && (nHiddenTreasures == 0) && (specificHiddenTreasures == new ArrayList<TreasureKind>()) && (specificVisibleTreasures == new ArrayList<TreasureKind>()) && (death  == false)){
+        if ((text == " ") && (nVisibleTreasures == 0) && (nHiddenTreasures == 0)
+                && (specificHiddenTreasures == new ArrayList<TreasureKind>()) &&
+                (specificVisibleTreasures == new ArrayList<TreasureKind>()) && (death  == false)){        
             respuesta = true;
         }
         else
             respuesta = false;
+        
         return respuesta;
-    
-        //Devuelve true cuando el mal rollo está vacío. Eso significa que el conjunto de
-//atributos del mal rollo indican que no hay mal rollo que cumplir, plantéate qué
-//valores deberán tener.
     }
     
+    /**
+     * Devuelve true si un mal rollo es muerte
+     */
     public boolean kills(){
         return death;
     }
+    
+    public void substractVisibleTreasure(Treasure t){
+        
+    }
+    
+    public void substractHiddenTreasure(Treasure t){
+        
+    }
+    
+    
     
     public String arrayToString(ArrayList<TreasureKind> kindList){
         String aux = " ";
@@ -122,6 +139,7 @@ public class BadConsequence {
         }
         return aux;
     }
+    
     public String toString(){
         return "\nMal rollo =" +text+ "\nNiveles que se pierden =" +Integer.toString(levels)+ "\nNº Tesoros ocultos perdidos=" +Integer.toString(nHiddenTreasures)
       +"\nNº tesoros visibles perdidos=" +Integer.toString(nVisibleTreasures)+ "\nMuerte= " +Boolean.toString(death)

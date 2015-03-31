@@ -1,30 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package napakalaki;
 
 /**
- *
- * @author sagrario
+ * @author Elena Romero y Marta Verona
  */
+
 public class Treasure {
     private String name;
     private int goldCoins;
     private int minBonus;
     private int maxBonus;
     
-    private TreasureKind treasure; 
+    private TreasureKind type; 
 
+    /**
+     * Constructor 
+     */
     public Treasure(String n, int g, int min, int max, TreasureKind t){
         name = n;
         goldCoins = g;
         minBonus = min;
         maxBonus = max;
-        treasure = t;
+        type = t;
     }
-            
+    
+    /**
+     * Consultores
+     */
     public String getName(){
         return name;
     }
@@ -39,6 +41,6 @@ public class Treasure {
         return maxBonus;
     }
     public TreasureKind getType(){
-        return treasure;
+        return type;
     }
 }

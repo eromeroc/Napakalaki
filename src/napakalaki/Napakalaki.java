@@ -1,31 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package napakalaki;
 
 import java.util.ArrayList;
+import napakalaki.Player;
+import napakalaki.Monster;
 
 /**
- *
- * @author sagrario
+ * @author Elena Romero y Marta Verona
  */
 public class Napakalaki {
     
-    private Monster currentMonster; // 0 o 1
-    private Player currentPlayer;   // 0 ó 1
-    private ArrayList<Player> player;          // 1 o más    o un arrayList?
+    private Monster currentMonster; 
+    private Player currentPlayer;   
+    private ArrayList<Player> players;          // 1 o más 
     
-    //CombatResult          con lineas
-    //CardDealer            discontinuas
+    //Combat result y Card dealer con discontinuas
     
     private static  Napakalaki instance = null;
  
     
-    // Private constructor por defecto
+    /**
+     * Constructor (privado)
+     */
     private  Napakalaki(){
-        player = new ArrayList<Player>();
+        players = new ArrayList<Player>();
         currentPlayer = null;
         currentMonster = null;
     }
@@ -38,8 +35,19 @@ public class Napakalaki {
         return instance;
     }
     
-    //Inicializa jugadores (el objeto players)
-    private void initPlayers(String[]  names){
+
+    public ArrayList<Treasure> getVisibleTreasures(){
+        
+    }
+    
+    public ArrayList<Treasure> getHiddenTreasures(){
+        
+    }
+    
+    /**
+     * Inicializa jugadores
+     */
+    private void initPlayers(String[] names){
         
     }
 /*    
@@ -71,5 +79,47 @@ public class Napakalaki {
     */
     public void initGame(String [] players) {
     
+    }
+    
+    /**
+     * 
+     */
+    public Player getCurrentPlayer(){
+        
+    }
+    
+    /**
+     * 
+     */
+    public Monster getCurrentMonster(){
+        
+    }
+    
+    /**
+     * 
+     */
+    public boolean canMakeTreasureVisible(Treasure t){
+        
+    }
+    
+    /**
+     * 
+     */
+    public boolean nextTurn(){
+        
+    }
+    
+    /**
+     * 
+     */
+    public boolean nextTurnAllowed(){
+        
+    }
+    
+    /**
+     * 
+     */
+    public boolean endOfGame(CombatResult result){
+        
     }
 }
