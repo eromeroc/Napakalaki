@@ -1,9 +1,6 @@
 package napakalaki;
 
 
-/**
- * @author Marta Verona y Elena Romero
- */
 
 public class Prize {
     private int levels;

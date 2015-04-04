@@ -4,9 +4,6 @@ import napakalaki.TreasureKind;
 import java.util.ArrayList;
 
 
-/**
- * @author Marta Verona y Elena Romero
- */
 public class BadConsequence {
     
     private String text;            //Mal rollo
@@ -18,7 +15,9 @@ public class BadConsequence {
     private ArrayList<TreasureKind> specificHiddenTreasures;
     private ArrayList<TreasureKind> specificVisibleTreasures;
     
-    /***CONSTRUCTORES***/
+    /**
+     * Constructores
+     */
   
     public BadConsequence(){
         text = " ";
@@ -62,7 +61,28 @@ public class BadConsequence {
         nVisibleTreasures = 0;
     }
     
-    /***CONSULTORES***/
+    /**
+     * Devuelve true cuando el mal rollo está vacío, es decir, el conjunto de atributos
+     * de mal rollo indican que no hay mal rollo que cumplir
+     */
+    public boolean isEmpty(){
+        boolean respuesta;
+        if ((text == " ") && (nVisibleTreasures == 0) && (nHiddenTreasures == 0)
+                && specificHiddenTreasures.isEmpty() && specificVisibleTreasures.isEmpty() && (death  == false)){        
+            respuesta = true;
+        }
+        else
+            respuesta = false;
+        
+        return respuesta;
+    }
+    
+    /**
+     * Devuelve true si un mal rollo es muerte
+     */
+    public boolean kills(){
+        return death;
+    }
     
     public String getText(){
         return text;
@@ -92,30 +112,6 @@ public class BadConsequence {
         return death;
     }
     
-    /**
-     * Devuelve true cuando el mal rollo está vacío, es decir, el conjunto de atributos
-     * de mal rollo indican que no hay mal rollo que cumplir
-     */
-    public boolean isEmpty(){
-        boolean respuesta;
-        if ((text == " ") && (nVisibleTreasures == 0) && (nHiddenTreasures == 0)
-                && (specificHiddenTreasures == new ArrayList<TreasureKind>()) &&
-                (specificVisibleTreasures == new ArrayList<TreasureKind>()) && (death  == false)){        
-            respuesta = true;
-        }
-        else
-            respuesta = false;
-        
-        return respuesta;
-    }
-    
-    /**
-     * Devuelve true si un mal rollo es muerte
-     */
-    public boolean kills(){
-        return death;
-    }
-    
     public void substractVisibleTreasure(Treasure t){
         
     }
@@ -123,6 +119,12 @@ public class BadConsequence {
     public void substractHiddenTreasure(Treasure t){
         
     }
+    
+    /*
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
+        
+    }
+    */
     
     
     

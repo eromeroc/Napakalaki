@@ -4,26 +4,22 @@ package napakalaki;
 import napakalaki.Prize;
 import napakalaki.BadConsequence;
 
-/**
- * @author Elena Romero y Marta Verona
- */
-
 
 public class Monster {
     private String name;     //nombre monstruo
     private int combatLevel; //nivel de combate
     
-    private Prize price;
+    private Prize prize;
     private BadConsequence bc;
     
     /**
      * Constructor
      */
-    public Monster(String name, int combatLevel, BadConsequence bc, Prize price){
+    public Monster(String name, int combatLevel, BadConsequence bc, Prize prize){
         this.name = name;
         this.combatLevel = combatLevel;
         this.bc = bc;
-        this.price = price;
+        this.prize = prize;
     }
     
    /**
@@ -42,7 +38,7 @@ public class Monster {
     }
     
     public Prize getPrice(){
-        return price;
+        return prize;
     }
     
 
@@ -50,7 +46,7 @@ public class Monster {
      * Devuelve string con el estado completo del objeto
      */
     public String toString(){
-        return "\nName =" +name+ "\nLevels =" +Integer.toString(combatLevel)+ "\nPrize =" +price.toString()+
+        return "\nName =" +name+ "\nLevels =" +Integer.toString(combatLevel)+ "\nPrize =" +prize.toString()+
                 "\nBadConsequence =" +bc.toString();
     }
 }
