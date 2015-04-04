@@ -93,51 +93,52 @@ public class Player {
     /**
      * 
      */
-    private boolean canIBuyLevels(int l){
+ //   private boolean canIBuyLevels(int l){
         
-    }
+  //  }
     
     /**
      * 
      */
-    protected float computeGoldCoinsValue(ArrayList<Treasure> t){
+//    protected float computeGoldCoinsValue(ArrayList<Treasure> t){
         
-    }
+  //  }
     
     /**
      * 
      */
-    public void applyPrize(Prize p){
+//    public void applyPrize(Prize p){
         
-    }
+ //   }
     
     /**
      * 
      */
-    public CombatResult combat(Monster m){
+ 
+//    public CombatResult combat(Monster m){
         
-    }
+//    }
     
     /**
      * 
      */
-    public void applyBadConsequence(BadConsequence bq){
+//    public void applyBadConsequence(BadConsequence bq){
         
-    }
+ //   }
     
     /**
      * 
      */
-    public boolean makeTreasureVisible(Treasure t){
+   // public boolean makeTreasureVisible(Treasure t){
         
-    }
+    //}
     
     /**
      * 
      */
-    public boolean canMakeTreasureVisible(Treasure t){
+  //  public boolean canMakeTreasureVisible(Treasure t){
         
-    }
+  //  }
     
     /**
      * 
@@ -163,29 +164,29 @@ public class Player {
     /**
      * 
      */
-    public boolean validState(){
+//    public boolean validState(){
         
-    }
+ //   }
     
     /**
      * 
      */
-    public boolean initTreasures(){
+ //   public boolean initTreasures(){
         
-    }
+//    }
     
     /**
      * 
      */
-    public boolean isDead(){
+ //   public boolean isDead(){
         
-    }
+ //   }
     
     /**
      * 
      */
-    public boolean hasVisibleTreasures(){
+ //   public boolean hasVisibleTreasures(){
         
-    }
+ //   }
     
 }

@@ -35,7 +35,7 @@ public class Napakalaki {
         return instance;
     }
     
-
+/*
     public ArrayList<Treasure> getVisibleTreasures(){
         
     }
@@ -43,6 +43,7 @@ public class Napakalaki {
     public ArrayList<Treasure> getHiddenTreasures(){
         
     }
+    */
     
     /**
      * Inicializa jugadores
@@ -84,42 +85,42 @@ public class Napakalaki {
     /**
      * 
      */
-    public Player getCurrentPlayer(){
+   // public Player getCurrentPlayer(){
         
-    }
+    //}
     
     /**
      * 
      */
-    public Monster getCurrentMonster(){
+ //   public Monster getCurrentMonster(){
         
-    }
+   // }
     
     /**
      * 
      */
-    public boolean canMakeTreasureVisible(Treasure t){
+ //   public boolean canMakeTreasureVisible(Treasure t){
         
-    }
+   // }
     
     /**
      * 
      */
-    public boolean nextTurn(){
+  //  public boolean nextTurn(){
         
-    }
+    //}
     
     /**
      * 
      */
-    public boolean nextTurnAllowed(){
+    //public boolean nextTurnAllowed(){
         
-    }
+    //}
     
     /**
      * 
      */
-    public boolean endOfGame(CombatResult result){
+    //public boolean endOfGame(CombatResult result){
         
-    }
+    //}
 }
