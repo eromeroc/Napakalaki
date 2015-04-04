@@ -47,7 +47,19 @@ public class Napakalaki {
         return instance;
     }
     
+    
+    /**
+     * Inicializa jugadores
+     */
+    private void initPlayers(String[] names){
+        
+    }
     /*
+    private Player nextPlayer(){
+        
+    }
+    
+
     public CombatResult combat() {
         
     }
@@ -72,16 +84,20 @@ public class Napakalaki {
     
     }
     
+
     public Player getCurrentPlayer(){
+
         
     }
     
     public Monster getCurrentMonster(){
+
         
     }
     
+
     public boolean canMakeTreasureVisible(Treasure t){
-        
+
     }
     
     public ArrayList<Treasure> getVisibleTreasures(){
@@ -93,16 +109,17 @@ public class Napakalaki {
     }
    
     public boolean nextTurn(){
-        
+
     }
     
    
     public boolean nextTurnAllowed(){
-        
+
     }
     
+
     public boolean endOfGame(CombatResult result){
-        
+
     }
     */
 }

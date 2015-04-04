@@ -30,10 +30,16 @@ public class PruebaNapakalaki {
         Napakalaki napa = Napakalaki.getInstance();
         System.out.println("Prueba Napakalaki");
         */
-        
-        Treasure tesoros = new Treasure("nombre",3,4,5, TreasureKind.ARMOR );
-        System.out.println("Prueba Treasure");
-        
+       
+        /*
+       Treasure tesoros = new Treasure("nombre",3,4,5, TreasureKind.ARMOR );
+       System.out.println(tesoros.getName());
+       System.out.println(tesoros.getGolCoind());
+       System.out.println(tesoros.getMaxBonus());
+       System.out.println(tesoros.getMinBonus());
+       System.out.println(tesoros.getType());
+       System.out.println("Prueba Treasure");
+       */
     }
     
 }
