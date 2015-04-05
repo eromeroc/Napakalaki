@@ -1,9 +1,6 @@
 
 package napakalaki;
 
-/**
- * @author Elena Romero y Marta Verona
- */
 
 public class Treasure {
     private String name;
@@ -30,7 +27,6 @@ public class Treasure {
     public String getName(){
         return name;
     }
-
     public int getGolCoind(){
         return goldCoins;
     }

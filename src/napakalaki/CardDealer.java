@@ -6,9 +6,6 @@ import java.util.Random;
 import napakalaki.Monster;
 import napakalaki.Treasure;
 
-/**
- * @author Marta Verona y Elena Romero
- */
 
 public class CardDealer {
    
@@ -31,7 +28,9 @@ public class CardDealer {
         usedTreasures = new ArrayList<Treasure>() ;
     }
  
-    
+    /**
+     * Devuelve la única instancia de CardDealer y la inicializa si no lo está aún
+     */
     public static CardDealer getInstance() {
         if (instance == null){
             instance = new CardDealer();
@@ -85,8 +84,6 @@ public class CardDealer {
      * Inicializa cartas de monstruos
      */
     private void initMonsterCardDeck(){
-        //unusedMonsters = new ArrayList<Monster>(); ??
-        
          
         //Crea monstruo "3 Byakhees de bonanza"
         BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta", 0,      
@@ -233,17 +230,11 @@ public class CardDealer {
         }
     }
     
-    /**
-     * Devuelve siguiente carta de tesoro
-     *
+    /*
     public Treasure nextTreasure(){
         
     }
-    */
     
-    /**
-     * Devuelve siguiente carta de monstruo
-     *
     public Monster nextMonster(){
       
     }

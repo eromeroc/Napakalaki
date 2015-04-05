@@ -4,9 +4,7 @@ package napakalaki;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * @author Marta Verona y Elena Romero
- */
+
 public class CartasMonstruos {
     
     private ArrayList<Monster> monstruos;
