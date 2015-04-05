@@ -19,11 +19,12 @@ public class PruebaNapakalaki {
      */
     public static void main(String[] args) {
     
-        /* 
+        
         CardDealer cartas = CardDealer.getInstance();
         cartas.initCards();
+        cartas.shuffleTreasures();
         System.out.println("Prueba CardDealer");
-      */
+      
         
         
         /*
