@@ -65,16 +65,19 @@ public class Player {
         pendingBadConsequence = bq;     
     }
     
-    /*
+    
     private void die(){
-        
+        dead = true;
+        level = 1;
+        visibleTreasures = new ArrayList<Treasure>();
+        hiddenTreasures = new ArrayList<Treasure>();
     }
     
     
     private void discardNecklaceIfVisible(){
         
     }
-    */ 
+    
     
     /**
      * Cambia el estado del jugador a muerto si no tiene tesoros
@@ -93,7 +96,7 @@ public class Player {
         boolean win = true;
         int l = i / 1000;
         
-        if(l > 10)
+        if(l > 10) // no sería levels + l > 10 ???
             win = false;
         
         return win;  
@@ -170,6 +173,9 @@ public class Player {
           Si no, suman minBonus
         */
         
+        //Lo de necklace es solo cuando max y min son diferentes
+        //Si max y min son iguales, tenga o no necklace se le suma maxBonus, 
+        
         if(hasNecklace()){
             for(Treasure t: visibleTreasures){
                 combatLevel += t.getMaxBonus();
@@ -178,7 +184,7 @@ public class Player {
                 combatLevel += t.getMaxBonus();
             }
         }
-        else{
+        else{   
             for(Treasure t: visibleTreasures){
                 combatLevel += t.getMinBonus();
             }
