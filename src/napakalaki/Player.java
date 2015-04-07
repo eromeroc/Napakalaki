@@ -96,7 +96,7 @@ public class Player {
         boolean win = true;
         int l = i / 1000;
         
-        if(l > 10) // no sería levels + l > 10 ???
+        if(level + l > 10) 
             win = false;
         
         return win;  
@@ -172,9 +172,6 @@ public class Player {
             todas las cartas de tesoros que tiene suman maxBonus
           Si no, suman minBonus
         */
-        
-        //Lo de necklace es solo cuando max y min son diferentes
-        //Si max y min son iguales, tenga o no necklace se le suma maxBonus, 
         
         if(hasNecklace()){
             for(Treasure t: visibleTreasures){
