@@ -16,7 +16,7 @@ public class Dice {
      /**
      * Devuelve la única instancia de Dice y la inicializa si no lo está aún
      */
-     public Dice getInstance(){
+     public static Dice getInstance(){
          if (instance == null){
                 instance = new Dice();
         }
@@ -35,3 +35,6 @@ public class Dice {
          return num;
      }
 }
+
+
+
