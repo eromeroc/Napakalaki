@@ -6,7 +6,6 @@ import java.util.Arrays;
 /**
  * @author Elena Romero y Marta Verona
  */
-import napakalaki.CartasMonstruos;
 import napakalaki.Monster;
 import napakalaki.CardDealer;
 import napakalaki.Napakalaki;
@@ -29,8 +28,16 @@ public class PruebaNapakalaki {
       */
         
         
-      /*  
+      /*
         Napakalaki napa = Napakalaki.getInstance();
+        String names[] = {"marta", "elena"};
+        napa.initPlayers(names);
+        napa.nextPlayer();
+        napa.getCurrentPlayer();
+        napa.getCurrentMonster();
+        napa.nextTurnAllowed();
+        System.out.println(napa.endOfGame(CombatResult.WINANDWINGAME));
+        System.out.println(napa.endOfGame(CombatResult.WIN));
         System.out.println("Prueba Napakalaki");
         */
        

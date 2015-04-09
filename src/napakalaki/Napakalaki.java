@@ -3,6 +3,7 @@ package napakalaki;
 import java.util.ArrayList;
 import napakalaki.Player;
 import napakalaki.Monster;
+import java.util.Random;
 
 //CombatResult y CardDealer discontinuas
 
@@ -12,6 +13,7 @@ public class Napakalaki {
     private Monster currentMonster; 
     private Player currentPlayer;   
     private ArrayList<Player> players;          // 1 o más 
+    private int currentPlayerIndex = -1;
     
     
     private static  Napakalaki instance = null;
@@ -26,17 +28,7 @@ public class Napakalaki {
         currentMonster = null;
     }
     
-    /*
-    private void initPlayers(String[] names){
-        
-    }
     
-     
-    private Player nextPlayer(){
-        
-    }
-    */
-
     /**
      * Devuelve la única instancia de Napakalaki y la inicializa si no lo está aún
      */
@@ -47,17 +39,47 @@ public class Napakalaki {
         return instance;
     }
     
+    /*Inicializa el array de jugadores que contiene Napakalaki, creando tantos jugadores como
+elementos haya en names, que es el array de String que contiene el nombre de los
+jugadores.*/
+    //private 
+    public void initPlayers(String[] names){
+        for (int i = 0 ; i < names.length; i++){
+            Player jugador = new Player(names[i]);
+            players.add(jugador);
+        }
+    }
     
-    /**
-     * Inicializa jugadores
-     */
-    private void initPlayers(String[] names){
-        
+    /*Decide qué jugador es el siguiente en jugar. Se pueden dar dos posibilidades para calcular
+el índice que ocupa dicho jugador en la lista de jugadores, que se trate del primer turno o
+no. Para el primer turno se calculará la posición del primer jugador utilizando un número
+aleatorio.
+Se debe añadir a la clase Napakalali un atributo privado denominado
+currentPlayerIndex. Este atributo representa el índice del jugador que posee el
+turno.
+También debe actualizarse la variable de instancia currentPlayer como parte de las
+tareas del método.*/
+    //private 
+    public Player nextPlayer(){
+        Random aleatorio = new Random();
+        int siguiente ;
+                
+        if (currentPlayerIndex == -1){
+            siguiente = aleatorio.nextInt(players.size());
+        }
+        else{
+            if (currentPlayerIndex == players.size())
+                siguiente = 0;
+            else
+                siguiente = currentPlayerIndex +1;
+        }
+        currentPlayerIndex = siguiente;
+        currentPlayer = players.get(siguiente);
+        return currentPlayer;
     }
+  
     /*
-    private Player nextPlayer(){
-        
-    }
+    
     
 
     public CombatResult combat() {
@@ -83,19 +105,19 @@ public class Napakalaki {
     public void initGame(String [] players) {
     
     }
+    */
     
-
+    //Devuelve el jugador que posee el turno (currentPlayer)
     public Player getCurrentPlayer(){
-
-        
+        return currentPlayer;
     }
     
+    //Devuelve el monstruo en juego (currentMonster)
     public Monster getCurrentMonster(){
-
-        
+        return currentMonster;
     }
     
-
+/*
     public boolean canMakeTreasureVisible(Treasure t){
 
     }
@@ -111,15 +133,25 @@ public class Napakalaki {
     public boolean nextTurn(){
 
     }
-    
-   
-    public boolean nextTurnAllowed(){
-
-    }
-    
-
-    public boolean endOfGame(CombatResult result){
-
-    }
     */
+    
+   /*Método que comprueba si el jugador activo (currentPlayer) cumple con las reglas del
+juego para poder terminar su turno. Devuelve false si el jugador activo no puede pasar de
+turno y true en caso contrario. Para ello usa el método de Player: validState()*/
+    public boolean nextTurnAllowed(){
+        if(currentPlayer.validState() == true)
+            return true;
+        else
+            return false;
+    }
+    
+    /*Devuelve true si result tiene el valor WINANDWINGAME del enumerado CombatResult, en
+caso contrario devuelve false.*/
+    public boolean endOfGame(CombatResult result){
+        if(CombatResult.WINANDWINGAME == result)
+            return true;
+        else
+            return false;
+    }
+    
 }
