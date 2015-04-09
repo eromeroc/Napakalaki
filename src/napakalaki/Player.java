@@ -64,8 +64,9 @@ public class Player {
     private void setPendingBadConsequence(BadConsequence bq){
         pendingBadConsequence = bq;     
     }
-    
-    
+
+//    Cuando el jugador muere en un combate, esta operación es la encargada de dejarlo sin
+//    tesoros, ponerle el nivel a 1 e indicar que está muerto, en el atributo correspondiente.
     private void die(){
         dead = true;
         level = 1;
@@ -109,6 +110,10 @@ public class Player {
     */
     
     /*
+    
+//    Cuando el jugador gana el combate, esta operación es la encargada de aplicar el buen
+//    rollo al jugador, sumando los niveles correspondiente y robando los tesoros indicados en el
+//    buen rollo del monstruo.
     public void applyPrize(Prize p){
         
     }
@@ -117,6 +122,14 @@ public class Player {
         
     }
     
+//    Cuando el jugador ha perdido el combate, no ha podido huir y no muere, hay que
+//    almacenar el mal rollo que le impone el monstruo con el que combatió. Para ello,
+//    decrementa sus niveles según indica el mal rollo y guarda una copia de un objeto
+//    badConsequence ajustada a los tesoros que puede perder según indique el mal rollo del
+//    monstruo y de los tesoros que disponga el jugador. La operación encargada de hacer este
+//    ajuste es adjustToFitTreasureLists de la clase badConsequence. El mal rollo
+//    pendiente (pendingbadConsequence) es el que el jugador almacenará y que deberá
+//    cumplir descartándose de esos tesoros antes de que pueda pasar al siguiente turno.
     public void applyBadConsequence(BadConsequence bq){
         
     }
@@ -205,6 +218,13 @@ public class Player {
     }
     
     /*
+    
+//    Cuando un jugador está en su primer turno o se ha quedado sin tesoros ocultos o visibles,
+//    hay que proporcionarle nuevos tesoros para que pueda seguir jugando. El número de
+//    tesoros que se les proporciona viene dado por el valor que saque al tirar el dado:
+//    ● Si (dado == 1) roba un tesoro.
+//    ● Si (1 < dado< 6) roba dos tesoros.
+//    ● Si (dado == 6) roba tres tesoros.
     public boolean initTreasures(){
         
     }

@@ -121,6 +121,13 @@ public class BadConsequence {
     }
     
     /*
+    
+//    Recibe como parámetros los tesoros visibles y ocultos de los que dispone el jugador y
+//devuelve un nuevo objeto mal rollo creado a partir del objeto mal rollo que ejecuta este
+//método.
+//El objeto de mal rollo devuelto por adjustToFitTreasureLists solo contendrá listas
+//de tipos de tesoros o cantidades de tesoros de forma que el jugador correspondiente
+//pueda cumplir el mal rollo generado.
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
         
     }

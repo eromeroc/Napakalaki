@@ -94,6 +94,9 @@ tareas del método.*/
         
     }
     
+//    Operación en la que el jugador pasa tesoros ocultos a visibles, siempre que pueda hacerlo
+//    según las reglas del juego, para ello llama al método, para ello desde Player se ejecuta el
+//    método: canMakeTreasureVisible(t:Treasure ):boolean
     public  boolean makeTreasureVisible(Treasure t){
         
     }
