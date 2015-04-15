@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import napakalaki.Treasure;
 import napakalaki.BadConsequence;
 import napakalaki.TreasureKind;
+import napakalaki.CardDealer;
 
 
 
@@ -74,8 +75,18 @@ public class Player {
         hiddenTreasures = new ArrayList<Treasure>();
     }
     
-    
+    /**
+     * Si el jugador tiene equipado un tesoro NECKLACE, se lo entrega al CardDealer 
+     * y lo elimina de sus tesoros visibles
+     */
     private void discardNecklaceIfVisible(){
+        
+        for(Treasure treasure: visibleTreasures){
+                if(treasure.getType() == TreasureKind.NECKLACE){
+                    giveTreasureBack(treasure); //???????????????????
+                    visibleTreasures.remove(treasure);
+                }
+            }
         
     }
     
@@ -103,11 +114,22 @@ public class Player {
         return win;  
     }
     
-    /*
+    /**
+     * Calcula y devuelve los niveles que puede comprar el jugador con la lista t de tesoros
+     * El número de tesoros no es redondeado y se expresa mediante un número en coma flotante
+     */
+    
     protected float computeGoldCoinsValue(ArrayList<Treasure> t){
+        float goldCoinsValue = 0;
+        
+        for(Treasure treasure: t){
+            goldCoinsValue += treasure.getGolCoind();
+        }
+        
+        return goldCoinsValue/1000; 
         
     }
-    */
+
     
     /*
     
@@ -137,11 +159,29 @@ public class Player {
     public boolean makeTreasureVisible(Treasure t){
         
     }
+    */
     
+    /**
+     * Comprueba si el tesoro t se puede pasar de oculto a visible según las reglas del juego
+     */
     public boolean canMakeTreasureVisible(Treasure t){
+        boolean canMakeVisible = true;
+        
+        if(visibleTreasures.size() > 4){
+            canMakeVisible = false;
+        }else{
+            for(Treasure treasure: visibleTreasures){
+                if(treasure.getType() == t.getType()){
+                    canMakeVisible = false;
+                }
+            }
+        }
+        
+        return canMakeVisible;
         
     }
     
+    /*
     public void discardVisibleTreasure(Treasure t){
         
     }
@@ -156,7 +196,7 @@ public class Player {
     */
     
     /**
-     * Devuelve true si el jugador tiene un tesoro de tipo collar
+     * Devuelve true si el jugador tiene un tesoro de tipo collar en el array pasado
      */
     public boolean hasNecklace(){
         boolean hasNecklace = false;

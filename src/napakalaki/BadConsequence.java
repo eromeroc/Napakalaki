@@ -112,12 +112,34 @@ public class BadConsequence {
         return death;
     }
     
+    /**
+     * Actualiza el mal rollo (que tiene que cumplir el jugador) basandose
+     * en el hecho de que el jugador se descarta del tesoro visible t
+     */
     public void substractVisibleTreasure(Treasure t){
+        if(nVisibleTreasures > 0) nVisibleTreasures--;
+        else{
+            for(TreasureKind treasure: specificVisibleTreasures){
+                if(treasure == t.getType())
+                    specificVisibleTreasures.remove(treasure);
+            }
+        }
         
     }
     
+    /**
+     * Actualiza el mal rollo (que tiene que cumplir el jugador) basandose
+     * en el hecho de que el jugador se descarta del tesoro oculto t
+     */
     public void substractHiddenTreasure(Treasure t){
         
+        if(nHiddenTreasures > 0) nHiddenTreasures--;
+        else{
+            for(TreasureKind treasure: specificHiddenTreasures){
+                if(treasure == t.getType())
+                    specificHiddenTreasures.remove(treasure);
+            }
+        }
     }
     
     /*
