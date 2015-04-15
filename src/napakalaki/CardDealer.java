@@ -230,15 +230,43 @@ public class CardDealer {
         }
     }
     
-    /*
+    /**
+     * Devuelve el siguiente tesoro que hay en unusedTreasures y lo elimina de él.
+     * Si el mazo está vacío, pasa el mazo de descartes al de tesoros y lo baraja
+     */
     public Treasure nextTreasure(){
+        Treasure nextTreasure;
         
+        if(unusedTreasures.isEmpty()){
+            unusedTreasures = usedTreasures;
+            usedTreasures.clear();
+            shuffleTreasures();
+        }
+        nextTreasure = unusedTreasures.get(unusedTreasures.size()); //¿Cogemos el último o el 0?
+        unusedTreasures.remove(unusedTreasures.size());
+        
+        return nextTreasure;
     }
     
+    /**
+     * Devuelve el siguiente monstruo que hay en unusedMonsters y lo elimina de él.
+     * Si el mazo está vacío, pasa el mazo de descartes al de monstruos y lo baraja
+     */
     public Monster nextMonster(){
+       Monster nextMonster;
+        
+        if(unusedMonsters.isEmpty()){
+            unusedMonsters = usedMonsters;
+            usedMonsters.clear();
+            shuffleMonsters();
+        }
+        nextMonster = unusedMonsters.get(unusedMonsters.size()); //¿Cogemos el último o el 0?
+        unusedMonsters.remove(unusedMonsters.size());
+        
+        return nextMonster;
       
     }
-    */
+    
     
     /**
      * Introduce en el mazo de cartas de tesoros(usedTreasures) el tesoro t
