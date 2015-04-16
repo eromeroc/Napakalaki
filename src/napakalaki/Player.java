@@ -188,18 +188,40 @@ public class Player {
     }
     
     /*
+     *eliminar los tesoros visibles indicados de la lista de tesoros
+    visibles del jugador. Al eliminar esos tesoros, si el jugador tiene un mal rollo pendiente, se
+    indica a éste dicho descarte para su posible actualización.
+     */
     public void discardVisibleTreasure(Treasure t){
+        visibleTreasures.remove(t);
+        
+        if((pendingBadConsequence != null) && (!pendingBadConsequence.isEmpty())){
+            pendingBadConsequence.substractVisibleTreasure(t);
+        }
+        
+        CardDealer.getInstance().giveTreasureBack(t);
+        
+        dieIfNoTreasures();
         
     }
     
     public void discardHiddenTreasure(Treasure t){
+        hiddenTreasures.remove(t);
+        
+        if((pendingBadConsequence != null) && (!pendingBadConsequence.isEmpty())){
+            pendingBadConsequence.substractHiddenTreasure(t);
+        }
+        
+        CardDealer.getInstance().giveTreasureBack(t);
+        
+        dieIfNoTreasures();
         
     }
     
     public void buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
         
     }
-    */
+    
     
     /**
      * Devuelve true si el jugador tiene un tesoro de tipo collar en el array pasado

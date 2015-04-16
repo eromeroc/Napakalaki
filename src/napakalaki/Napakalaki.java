@@ -3,6 +3,7 @@ package napakalaki;
 import java.util.ArrayList;
 import napakalaki.Player;
 import napakalaki.Monster;
+import napakalaki.CardDealer;
 import java.util.Random;
 
 //CombatResult y CardDealer discontinuas
@@ -85,13 +86,22 @@ tareas del método.*/
     public CombatResult combat() {
         
     }
+    */
    
+    /*Operación encargada de eliminar los tesoros visibles indicados de la lista de tesoros
+visibles del jugador. Al eliminar esos tesoros, si el jugador tiene un mal rollo pendiente, se
+indica a éste dicho descarte para su posible actualización.
+    */
     public  void discardVisibleTreasure(Treasure t ){
-        
+        currentPlayer.discardVisibleTreasure(t);
     }   
     
+    /*Operación encargada de eliminar los tesoros ocultos indicados de la lista de tesoros
+ocultos del jugador. Al eliminar esos tesoros, si el jugador tiene un mal rollo pendiente, se
+indica a éste dicho descarte para su posible actualización.
+    */
     public  void discardHiddenTreasure(Treasure t ){
-        
+        currentPlayer.discardHiddenTreasure(t);
     }
     
 //    Operación en la que el jugador pasa tesoros ocultos a visibles, siempre que pueda hacerlo
@@ -104,11 +114,20 @@ tareas del método.*/
     public  boolean buyLevels(Treasure [] visible, Treasure [] hidden){
         
     }
-    
-    public void initGame(String [] players) {
-    
-    }
     */
+    /**
+     * Se encarga de solicitar a CardDealer la inicialización de los mazos de cartas de
+     * Tesoros y de Monstruos, de inicializar los jugadores proporcionándoles un nombre y de
+     * iniciar el juego con la llamada a nextTurn() para pasar al siguiente turno (que en este
+     * caso será el primero).    
+     */
+    public void initGame(String [] players) {
+        CardDealer.getInstance().initCards();
+        initPlayers(players);
+        nextTurn();
+           
+    }
+    
     
     //Devuelve el jugador que posee el turno (currentPlayer)
     public Player getCurrentPlayer(){
@@ -132,11 +151,30 @@ tareas del método.*/
     public ArrayList<Treasure> getHiddenTreasures(){
         
     }
-   
+    */
+    /*Esta operación usa el método nextTurnAllowed(), para verificar si el jugador activo
+(currentPlayer) cumple con las reglas del juego para poder terminar su turno.
+En caso el caso que nextTurnAllowed() devuelva true, se actualiza el jugador activo
+al siguiente jugador y se le solicita a CardDealer el siguiente monstruo al que se
+enfrentará ese jugador (currentMonster).
+En caso de que el nuevo jugador activo esté muerto, por el combate en su anterior turno o
+porque es el primer turno, se inicializan sus tesoros siguiendo las reglas del juego. La
+inicialización de los tesoros se encuentra recogida en el diagrama subordinado
+initTreasures.
+    */
     public boolean nextTurn(){
+        
+        if(nextTurnAllowed()){
+            currentPlayer = nextPlayer();
+            currentMonster = CardDealer.getInstance().nextMonster();
+            
+            if(currentPlayer.isDead()){
+                initTreasures();
+            }
+        }
 
     }
-    */
+    
     
    /*Método que comprueba si el jugador activo (currentPlayer) cumple con las reglas del
 juego para poder terminar su turno. Devuelve false si el jugador activo no puede pasar de
