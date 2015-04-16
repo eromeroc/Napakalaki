@@ -83,7 +83,7 @@ public class Player {
         
         for(Treasure treasure: visibleTreasures){
                 if(treasure.getType() == TreasureKind.NECKLACE){
-                    giveTreasureBack(treasure); //???????????????????
+                    CardDealer.getInstance().giveTreasureBack(treasure);
                     visibleTreasures.remove(treasure);
                 }
             }
