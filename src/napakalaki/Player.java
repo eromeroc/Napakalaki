@@ -1,4 +1,4 @@
-applypackage napakalaki;
+package napakalaki;
 
 import java.util.ArrayList;
 import napakalaki.Treasure;
@@ -7,6 +7,7 @@ import napakalaki.TreasureKind;
 import napakalaki.CardDealer;
 import napakalaki.Dice;
 import napakalaki.Prize;
+import napakalaki.Monster;
 
 
 
@@ -144,11 +145,65 @@ public class Player {
         for (int i = 0 ; i < t ; i++)
             hiddenTreasures.add(CardDealer.getInstance().nextTreasure());
     }
-  /*  
-    public CombatResult combat(Monster m){
-        
-    }
+  
+    /*Si el nivel de jugador > nivel del monstruo {
+            Se actualiza el nivel y tesoros del jugador y se invoca al operación applyPrize
+            Devuelve Win si el jugador no gana la partida (nivel del jugador <10).
+            Devuelve WinAndWinGame si el jugador gana la partida.
+      }
+      Si el nivel del jugador es <= nivel del monstruo {
+        Se lanza el dado
+        Si sale 5 ó 6, {
+            No pasa nada y se devuelve LooseAndEscape
+        } en otro caso {
+            Se analiza en qué consiste el mal rollo
+            Si el jugador muere {
+                Se invoca a la operación die
+                Se devuelve LoseAndDie
+            } en otro caso {
+                Se invoca a la operación applyBadConsequence
+                Se devuelve Lose
+            }
+        }
+      }
     */
+    public CombatResult combat(Monster m){
+        CombatResult combatResult;
+        int levelMonster = m.getCombatLevel();
+        
+        if(getCombatLevel() > levelMonster){
+            Prize p = m.getPrize();
+            applyPrize(p);
+            if(getCombatLevel() < 10){
+                combatResult = CombatResult.WIN;
+            }
+            else
+                combatResult = CombatResult.WINANDWINGAME;
+            
+        }
+        else{
+            int nextNumber = Dice.getInstance().nextNumber();
+            
+            if(nextNumber >= 5){
+                combatResult = CombatResult.LOSEANDESCAPE;
+            }
+            else{
+                BadConsequence bq = m.getBadConsequence();
+                if(bq.kills()){
+                    die();
+                    combatResult = CombatResult.LOSEANDDIE;
+                }
+                else{
+                    applyBadConsequence(bq);
+                    combatResult = CombatResult.LOSE;
+                }
+            }
+            
+        }
+        
+        return combatResult;
+    }
+    
 //    Cuando el jugador ha perdido el combate, no ha podido huir y no muere, hay que
 //    almacenar el mal rollo que le impone el monstruo con el que combatió. Para ello,
 //    decrementa sus niveles según indica el mal rollo y guarda una copia de un objeto
@@ -160,6 +215,7 @@ public class Player {
     public void applyBadConsequence(BadConsequence bq){
         decrementLevels(bq.getLevels());
         pendingBadConsequence = bq.adjustToFitTreasureLists(hiddenTreasures,visibleTreasures);
+        setPendingBadConsequence(pendingBadConsequence);
     }
    /* 
     public boolean makeTreasureVisible(Treasure t){
@@ -217,9 +273,34 @@ public class Player {
         dieIfNoTreasures();
         
     }
-    
-    public void buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
+    /* Permite comprar niveles antes de combatir con el monstruo actual. Para
+       ello, a partir de las listas de tesoros (pueden ser tanto ocultos como visibles) se calculan
+       los niveles que puede subir el jugador en función del número de piezas de oro que sumen.
+       Si al jugador le está permitido comprar la cantidad de niveles resultantes (no se puede
+       comprar niveles si con ello ganas el juego), entonces se produce el mencionado
+       incremento
+    */
+    public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
+        boolean canI;
+        int l;
+        float levels = computeGoldCoinsValue(visible);
+        levels += computeGoldCoinsValue(hidden);
+        l = (int) levels;
         
+        canI = canIBuyLevels(l); 
+        
+        if(canI){
+            incrementLevels(l);
+            
+            for(Treasure v: visible){
+                discardVisibleTreasure(v);
+            }
+            for(Treasure h: hidden){
+                discardHiddenTreasure(h);
+            }      
+        }
+        
+        return canI;
     }
     
     

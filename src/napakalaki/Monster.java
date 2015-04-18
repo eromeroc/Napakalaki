@@ -37,7 +37,7 @@ public class Monster {
         return bc;
     }
     
-    public Prize getPrice(){
+    public Prize getPrize(){
         return prize;
     }
     

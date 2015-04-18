@@ -6,7 +6,6 @@ import napakalaki.Monster;
 import napakalaki.CardDealer;
 import java.util.Random;
 
-//CombatResult y CardDealer discontinuas
 
 
 public class Napakalaki {
@@ -79,14 +78,17 @@ tareas del método.*/
         return currentPlayer;
     }
   
-    /*
+    
     
     
 
     public CombatResult combat() {
+        CombatResult combat;
+        combat = currentPlayer.combat(currentMonster);
         
+        return combat;
     }
-    */
+    
    
     /*Operación encargada de eliminar los tesoros visibles indicados de la lista de tesoros
 visibles del jugador. Al eliminar esos tesoros, si el jugador tiene un mal rollo pendiente, se
@@ -108,13 +110,22 @@ indica a éste dicho descarte para su posible actualización.
 //    según las reglas del juego, para ello llama al método, para ello desde Player se ejecuta el
 //    método: canMakeTreasureVisible(t:Treasure ):boolean
     public  boolean makeTreasureVisible(Treasure t){
+        boolean makeVisible = false;
         
+        if(canMakeTreasureVisible(t)){
+            makeVisible = true;
+            
+            currentPlayer.getVisibleTreasures().add(t);
+            currentPlayer.getHiddenTreasures().remove(t);
+        }
+        return makeVisible;
     }
     
-    public  boolean buyLevels(Treasure [] visible, Treasure [] hidden){
+    public  boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
         
+        return currentPlayer.buyLevels(visible, hidden);        
     }
-    */
+    
     /**
      * Se encarga de solicitar a CardDealer la inicialización de los mazos de cartas de
      * Tesoros y de Monstruos, de inicializar los jugadores proporcionándoles un nombre y de
@@ -139,11 +150,11 @@ indica a éste dicho descarte para su posible actualización.
         return currentMonster;
     }
     
-/*
-    public boolean canMakeTreasureVisible(Treasure t){
 
+    public boolean canMakeTreasureVisible(Treasure t){
+        return currentPlayer.canMakeTreasureVisible(t);
     }
-    
+    /*
     public ArrayList<Treasure> getVisibleTreasures(){
         
     }
