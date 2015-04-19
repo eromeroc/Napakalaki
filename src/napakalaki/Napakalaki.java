@@ -174,8 +174,9 @@ inicialización de los tesoros se encuentra recogida en el diagrama subordinado
 initTreasures.
     */
     public boolean nextTurn(){
+        boolean stateOK = nextTurnAllowed();
         
-        if(nextTurnAllowed()){
+        if(stateOK){
             currentPlayer = nextPlayer();
             currentMonster = CardDealer.getInstance().nextMonster();
             
@@ -183,7 +184,7 @@ initTreasures.
                 initTreasures();
             }
         }
-
+       return stateOK;
     }
     
     
