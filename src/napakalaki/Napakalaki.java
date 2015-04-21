@@ -181,7 +181,7 @@ initTreasures.
             currentMonster = CardDealer.getInstance().nextMonster();
             
             if(currentPlayer.isDead()){
-                initTreasures();
+                //initTreasures();
             }
         }
        return stateOK;
