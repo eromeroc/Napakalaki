@@ -46,15 +46,19 @@ public class PruebaNapakalaki {
         for(int i = 0; i<6; i++)
             System.out.println(dice.nextNumber());
         */
-       /*
+        BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta", 0,      
+        new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
+        
+        Prize prize = new Prize(2,1);
+        Monster m = new Monster("3 Byakhees de bonanza", 8, badConsequence, prize);
+        
         Player player= new Player("nombre");
-         System.out.println(player.validState());
-        System.out.println(player.getCombatLevel());
-         System.out.println(player.isDead());
-        System.out.println(player.getVisibleTreasures());
-        System.out.println(player.getHiddenTreasures());
-        System.out.println(player.hasVisibleTreasures());
-        */        
+        
+        player.initTreasures();
+        player.applyPrize(m.getPrize());
+        player.die(); //VOLVER A PONER PRIVADO!!!!
+        System.out.println(player.isDead());
+        player.applyBadConsequence(badConsequence);
         
         /*
        Treasure tesoros = new Treasure("nombre",3,4,5, TreasureKind.ARMOR );
@@ -65,11 +69,18 @@ public class PruebaNapakalaki {
        System.out.println(tesoros.getType());
        System.out.println("Prueba Treasure");
        */
-        
+      
+        /*
         BadConsequence bc = new BadConsequence("prueba", true);
         Treasure v = new Treasure("s", 0,0,0,TreasureKind.ARMOR);
         Treasure h = new Treasure("s", 0,0,0,TreasureKind.ARMOR);
-        //bc.adjustToFitTreasureLists(v,h);
+        ArrayList<Treasure> hidden = new ArrayList<Treasure>();
+        hidden.add(h);
+        ArrayList<Treasure> visible = new ArrayList<Treasure>();
+        hidden.add(v);
+        bc.adjustToFitTreasureLists(visible,hidden);
+        System.out.println("Prueba BC");
+                */
     }
     
 }

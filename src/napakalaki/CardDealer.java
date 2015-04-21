@@ -242,8 +242,8 @@ public class CardDealer {
             usedTreasures.clear();
             shuffleTreasures();
         }
-        nextTreasure = unusedTreasures.get(unusedTreasures.size()); //¿Cogemos el último o el 0?
-        unusedTreasures.remove(unusedTreasures.size());
+        nextTreasure = unusedTreasures.get(1); //¿Cogemos el último o el 0?
+        unusedTreasures.remove(1);
         
         return nextTreasure;
     }
