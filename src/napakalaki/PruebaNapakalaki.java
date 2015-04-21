@@ -11,6 +11,7 @@ import napakalaki.CardDealer;
 import napakalaki.Napakalaki;
 import napakalaki.Treasure;
 import napakalaki.Dice;
+import napakalaki.BadConsequence;
 
 public class PruebaNapakalaki {
 
@@ -64,6 +65,11 @@ public class PruebaNapakalaki {
        System.out.println(tesoros.getType());
        System.out.println("Prueba Treasure");
        */
+        
+        BadConsequence bc = new BadConsequence("prueba", true);
+        Treasure v = new Treasure("s", 0,0,0,TreasureKind.ARMOR);
+        Treasure h = new Treasure("s", 0,0,0,TreasureKind.ARMOR);
+        //bc.adjustToFitTreasureLists(v,h);
     }
     
 }

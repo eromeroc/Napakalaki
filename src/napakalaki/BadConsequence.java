@@ -151,7 +151,19 @@ public class BadConsequence {
 //de tipos de tesoros o cantidades de tesoros de forma que el jugador correspondiente
 //pueda cumplir el mal rollo generado.
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
+        ArrayList<TreasureKind> visible = new ArrayList<TreasureKind>();
+        ArrayList<TreasureKind> hidden = new ArrayList<TreasureKind>();
         
+        for(Treasure k:v){
+            visible.add(k.getType());
+        }
+        
+        for(Treasure k:v){
+            hidden.add(k.getType());
+        }
+        
+        BadConsequence bc = new BadConsequence("nuevo mal rollo",0,visible, hidden);
+        return bc;
     }
     
     

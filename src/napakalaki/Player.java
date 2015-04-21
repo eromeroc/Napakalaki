@@ -129,7 +129,7 @@ public class Player {
             goldCoinsValue += treasure.getGolCoind();
         }
         
-        return goldCoinsValue/1000; 
+        return goldCoinsValue/1000;  //1000 o 100?
         
     }
 
@@ -375,18 +375,21 @@ public class Player {
 //    ● Si (1 < dado< 6) roba dos tesoros.
 //    ● Si (dado == 6) roba tres tesoros.
     public void initTreasures(){
+        bringToLive();
         int num= Dice.getInstance().nextNumber();
-        
-        if(num == 1){
             
+        if(num == 1){
+            hiddenTreasures.add(CardDealer.getInstance().nextTreasure());
         }
         else {
             if(num ==6){
-                
+                for (int i = 0 ; i < 2 ; i++)
+                    hiddenTreasures.add(CardDealer.getInstance().nextTreasure());
             }
             
             else{
-                
+                for (int i = 0 ; i < 3 ; i++)
+                    hiddenTreasures.add(CardDealer.getInstance().nextTreasure());
             }
                 
         }
