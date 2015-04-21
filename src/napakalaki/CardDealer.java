@@ -26,6 +26,8 @@ public class CardDealer {
         usedMonsters = new ArrayList<Monster>();
         unusedTreasures = new ArrayList<Treasure>() ;
         usedTreasures = new ArrayList<Treasure>() ;
+        
+        initCards();
     }
  
     /**
@@ -242,8 +244,8 @@ public class CardDealer {
             usedTreasures.clear();
             shuffleTreasures();
         }
-        nextTreasure = unusedTreasures.get(1); //¿Cogemos el último o el 0?
-        unusedTreasures.remove(1);
+        nextTreasure = unusedTreasures.get(unusedMonsters.size()-1); //¿Cogemos el último o el 0?
+        unusedTreasures.remove(unusedMonsters.size()-1);
         
         return nextTreasure;
     }
@@ -260,8 +262,8 @@ public class CardDealer {
             usedMonsters.clear();
             shuffleMonsters();
         }
-        nextMonster = unusedMonsters.get(unusedMonsters.size()); //¿Cogemos el último o el 0?
-        unusedMonsters.remove(unusedMonsters.size());
+        nextMonster = unusedMonsters.get(unusedMonsters.size()-1); //¿Cogemos el último o el 0?
+        unusedMonsters.remove(unusedMonsters.size()-1);
         
         return nextMonster;
       
