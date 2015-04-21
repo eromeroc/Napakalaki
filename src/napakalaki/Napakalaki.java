@@ -115,8 +115,8 @@ indica a éste dicho descarte para su posible actualización.
         if(canMakeTreasureVisible(t)){
             makeVisible = true;
             
-            currentPlayer.getVisibleTreasures().add(t);
-            currentPlayer.getHiddenTreasures().remove(t);
+            currentPlayer.makeTreasureVisible(t); 
+            currentPlayer.discardHiddenTreasure(t);
         }
         return makeVisible;
     }
@@ -177,11 +177,11 @@ initTreasures.
         boolean stateOK = nextTurnAllowed();
         
         if(stateOK){
-            currentPlayer = nextPlayer();
+            nextPlayer();
             currentMonster = CardDealer.getInstance().nextMonster();
             
             if(currentPlayer.isDead()){
-                //initTreasures();
+                currentPlayer.initTreasures();
             }
         }
        return stateOK;

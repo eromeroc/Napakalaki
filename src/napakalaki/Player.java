@@ -217,12 +217,12 @@ public class Player {
         pendingBadConsequence = bq.adjustToFitTreasureLists(hiddenTreasures,visibleTreasures);
         setPendingBadConsequence(pendingBadConsequence);
     }
-   /* 
+   
     public boolean makeTreasureVisible(Treasure t){
-        
+        return true;
     }
     
-    */
+    
     /**
      * Comprueba si el tesoro t se puede pasar de oculto a visible según las reglas del juego
      */
