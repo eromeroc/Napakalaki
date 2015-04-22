@@ -71,7 +71,7 @@ public class Player {
 
 //    Cuando el jugador muere en un combate, esta operación es la encargada de dejarlo sin
 //    tesoros, ponerle el nivel a 1 e indicar que está muerto, en el atributo correspondiente.
-    public void die(){
+    private void die(){
         dead = true;
         level = 1;
         visibleTreasures = new ArrayList<Treasure>();

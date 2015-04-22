@@ -6,12 +6,7 @@ import java.util.Arrays;
 /**
  * @author Elena Romero y Marta Verona
  */
-import napakalaki.Monster;
-import napakalaki.CardDealer;
-import napakalaki.Napakalaki;
-import napakalaki.Treasure;
-import napakalaki.Dice;
-import napakalaki.BadConsequence;
+
 
 public class PruebaNapakalaki {
 
@@ -46,20 +41,20 @@ public class PruebaNapakalaki {
         for(int i = 0; i<6; i++)
             System.out.println(dice.nextNumber());
         */
-        BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta", 0,      
-        new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
-        
-        Prize prize = new Prize(2,1);
-        Monster m = new Monster("3 Byakhees de bonanza", 8, badConsequence, prize);
-        
-        Player player= new Player("nombre");
-        
-        player.initTreasures();
-        player.applyPrize(m.getPrize());
-        player.die(); //VOLVER A PONER PRIVADO!!!!
-        System.out.println(player.isDead());
-        player.applyBadConsequence(badConsequence);
-        
+//        BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta", 0,      
+//        new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
+//        
+//        Prize prize = new Prize(2,1);
+//        Monster m = new Monster("3 Byakhees de bonanza", 8, badConsequence, prize);
+//        
+//        Player player= new Player("nombre");
+//        
+//        player.initTreasures();
+//        player.applyPrize(m.getPrize());
+//        player.die(); // PONER PUBLICO PARA PRUEBAS
+//        System.out.println(player.isDead());
+//        player.applyBadConsequence(badConsequence);
+//        
         /*
        Treasure tesoros = new Treasure("nombre",3,4,5, TreasureKind.ARMOR );
        System.out.println(tesoros.getName());
