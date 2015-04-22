@@ -15,16 +15,19 @@ public class PruebaNapakalaki {
      */
     public static void main(String[] args) {
     
-    /*    
+        //PRUEBA CARDDEALER
+        /*   
         CardDealer cartas = CardDealer.getInstance();
         cartas.initCards();
         cartas.shuffleTreasures();
         cartas.shuffleMonsters();
+        cartas.nextTreasure();
+        cartas.nextMonster();
         System.out.println("Prueba CardDealer");
-      */
+        */
         
-        
-      /*
+        //PRUEBA NAPAKALAKI
+        /*
         Napakalaki napa = Napakalaki.getInstance();
         String names[] = {"marta", "elena"};
         napa.initPlayers(names);
@@ -36,35 +39,47 @@ public class PruebaNapakalaki {
         System.out.println(napa.endOfGame(CombatResult.WIN));
         System.out.println("Prueba Napakalaki");
         */
-       
-      /*  Dice dice = Dice.getInstance();
+        
+        //PRUEBA DICE
+        /*
+        Dice dice = Dice.getInstance();
         for(int i = 0; i<6; i++)
             System.out.println(dice.nextNumber());
         */
-//        BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta", 0,      
-//        new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
-//        
-//        Prize prize = new Prize(2,1);
-//        Monster m = new Monster("3 Byakhees de bonanza", 8, badConsequence, prize);
-//        
-//        Player player= new Player("nombre");
-//        
-//        player.initTreasures();
-//        player.applyPrize(m.getPrize());
-//        player.die(); // PONER PUBLICO PARA PRUEBAS
-//        System.out.println(player.isDead());
-//        player.applyBadConsequence(badConsequence);
-//        
+        
+        //PRUEBA PLAYER
         /*
-       Treasure tesoros = new Treasure("nombre",3,4,5, TreasureKind.ARMOR );
-       System.out.println(tesoros.getName());
-       System.out.println(tesoros.getGolCoind());
-       System.out.println(tesoros.getMaxBonus());
-       System.out.println(tesoros.getMinBonus());
-       System.out.println(tesoros.getType());
-       System.out.println("Prueba Treasure");
-       */
-      
+        BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta", 0,      
+        new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR))); 
+        Prize prize = new Prize(2,1);
+        Monster m = new Monster("3 Byakhees de bonanza", 8, badConsequence, prize);
+        Treasure t = new Treasure("Tentácula de pega", 200, 0, 1, TreasureKind.HELMET);
+        ArrayList<Treasure> treasures = new ArrayList<Treasure>() ;
+        treasures.add(t);
+        
+        Player player= new Player("nombre");
+        player.initTreasures();
+        player.applyPrize(m.getPrize());
+        player.applyBadConsequence(badConsequence);
+        player.discardNecklaceIfVisible(); //PONER PÚBLICO PARA PRUEBAS
+        player.die(); // PONER PUBLICO PARA PRUEBAS
+        System.out.println(player.isDead());
+        System.out.println(player.canMakeTreasureVisible(t));
+        System.out.println(player.computeGoldCoinsValue(treasures)); //PONER PUBLICO PARA PRUEBAS (es protected)
+        */
+        
+        //PRUEBA TREASURE
+        /*
+        Treasure tesoros = new Treasure("nombre",3,4,5, TreasureKind.ARMOR );
+        System.out.println(tesoros.getName());
+        System.out.println(tesoros.getGolCoind());
+        System.out.println(tesoros.getMaxBonus());
+        System.out.println(tesoros.getMinBonus());
+        System.out.println(tesoros.getType());
+        System.out.println("Prueba Treasure");
+        */
+        
+        //PRUEBA BADCONSEQUENCE
         /*
         BadConsequence bc = new BadConsequence("prueba", true);
         Treasure v = new Treasure("s", 0,0,0,TreasureKind.ARMOR);
@@ -75,7 +90,7 @@ public class PruebaNapakalaki {
         hidden.add(v);
         bc.adjustToFitTreasureLists(visible,hidden);
         System.out.println("Prueba BC");
-                */
+        */
     }
     
 }

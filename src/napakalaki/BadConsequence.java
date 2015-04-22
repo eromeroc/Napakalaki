@@ -18,7 +18,6 @@ public class BadConsequence {
     /**
      * Constructores
      */
-  
     public BadConsequence(){
         text = " ";
         levels = 0;
@@ -143,13 +142,14 @@ public class BadConsequence {
     }
     
     
-    
-//    Recibe como parámetros los tesoros visibles y ocultos de los que dispone el jugador y
-//devuelve un nuevo objeto mal rollo creado a partir del objeto mal rollo que ejecuta este
-//método.
-//El objeto de mal rollo devuelto por adjustToFitTreasureLists solo contendrá listas
-//de tipos de tesoros o cantidades de tesoros de forma que el jugador correspondiente
-//pueda cumplir el mal rollo generado.
+    /**
+     * Recibe como parámetros los tesoros visibles y ocultos de los que dispone el jugador y
+     * devuelve un nuevo objeto mal rollo creado a partir del objeto mal rollo que ejecuta este
+     * método.
+     * El objeto de mal rollo devuelto por adjustToFitTreasureLists solo contendrá listas
+     * de tipos de tesoros o cantidades de tesoros de forma que el jugador correspondiente
+     * pueda cumplir el mal rollo generado.
+     */   
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
         ArrayList<TreasureKind> visible = new ArrayList<TreasureKind>();
         ArrayList<TreasureKind> hidden = new ArrayList<TreasureKind>();
@@ -158,7 +158,7 @@ public class BadConsequence {
             visible.add(k.getType());
         }
         
-        for(Treasure k:v){
+        for(Treasure k:h){
             hidden.add(k.getType());
         }
         
