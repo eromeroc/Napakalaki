@@ -56,7 +56,8 @@ public class Napakalaki {
      *      Si es el primer turno
      *          Se calculará la posición del primer jugador utilizando un número aleatorio.
      *      Si no  
-     *          Se actualiza currentPlayerIndex y currentPlayer
+     *          Pasa al siguiente jugador, o al primero en caso de que haya acabado una ronda
+     *  Se actualiza currentPlayerIndex y currentPlayer
      */ 
     private Player nextPlayer(){
         Random aleatorio = new Random();

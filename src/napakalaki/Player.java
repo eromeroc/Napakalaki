@@ -224,8 +224,19 @@ public class Player {
         setPendingBadConsequence(pendingBadConsequence);
     }
    
+    /**
+     * Pasa tersoros ocultos a visibles, siempre que pueda hacerlo según las reglas 
+     */
     public boolean makeTreasureVisible(Treasure t){
-        return true;
+        boolean make = false;
+        
+        if(canMakeTreasureVisible(t)){
+            visibleTreasures.add(t);
+            hiddenTreasures.remove(t);
+            make = true;
+        }
+        
+        return make;
     }
     
     
