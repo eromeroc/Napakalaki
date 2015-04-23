@@ -69,8 +69,10 @@ public class Player {
         pendingBadConsequence = bq;     
     }
 
-//    Cuando el jugador muere en un combate, esta operación es la encargada de dejarlo sin
-//    tesoros, ponerle el nivel a 1 e indicar que está muerto, en el atributo correspondiente.
+    /**
+     * Cuando el jugador muere en un combate, esta operación es la encargada de dejarlo sin
+     * tesoros, ponerle el nivel a 1 e indicar que está muerto, en el atributo correspondiente
+     */ 
     private void die(){
         dead = true;
         level = 1;
@@ -136,9 +138,11 @@ public class Player {
     
     
     
-//    Cuando el jugador gana el combate, esta operación es la encargada de aplicar el buen
-//    rollo al jugador, sumando los niveles correspondiente y robando los tesoros indicados en el
-//    buen rollo del monstruo.
+    /**
+     * Cuando el jugador gana el combate, esta operación es la encargada de aplicar el buen
+     * rollo al jugador, sumando los niveles correspondiente y robando los tesoros indicados en el
+     * buen rollo del monstruo.
+     */ 
     public void applyPrize(Prize p){
         incrementLevels(p.getLevels());
         int t = p.getTreasures();
@@ -204,14 +208,16 @@ public class Player {
         return combatResult;
     }
     
-//    Cuando el jugador ha perdido el combate, no ha podido huir y no muere, hay que
-//    almacenar el mal rollo que le impone el monstruo con el que combatió. Para ello,
-//    decrementa sus niveles según indica el mal rollo y guarda una copia de un objeto
-//    badConsequence ajustada a los tesoros que puede perder según indique el mal rollo del
-//    monstruo y de los tesoros que disponga el jugador. La operación encargada de hacer este
-//    ajuste es adjustToFitTreasureLists de la clase badConsequence. El mal rollo
-//    pendiente (pendingbadConsequence) es el que el jugador almacenará y que deberá
-//    cumplir descartándose de esos tesoros antes de que pueda pasar al siguiente turno.
+    /**
+     * Cuando el jugador ha perdido el combate, no ha podido huir y no muere, hay que
+     * almacenar el mal rollo que le impone el monstruo con el que combatió. Para ello,
+     * decrementa sus niveles según indica el mal rollo y guarda una copia de un objeto
+     * badConsequence ajustada a los tesoros que puede perder según indique el mal rollo del
+     * monstruo y de los tesoros que disponga el jugador. La operación encargada de hacer este
+     * ajuste es adjustToFitTreasureLists de la clase badConsequence. El mal rollo
+     * pendiente (pendingbadConsequence) es el que el jugador almacenará y que deberá
+     * cumplir descartándose de esos tesoros antes de que pueda pasar al siguiente turno.
+     */
     public void applyBadConsequence(BadConsequence bq){
         decrementLevels(bq.getLevels());
         pendingBadConsequence = bq.adjustToFitTreasureLists(hiddenTreasures,visibleTreasures);
@@ -243,10 +249,10 @@ public class Player {
         
     }
     
-    /*
-     *eliminar los tesoros visibles indicados de la lista de tesoros
-    visibles del jugador. Al eliminar esos tesoros, si el jugador tiene un mal rollo pendiente, se
-    indica a éste dicho descarte para su posible actualización.
+    /**
+     * Eliminar los tesoros visibles indicados de la lista de tesoros
+     * visibles del jugador. Al eliminar esos tesoros, si el jugador tiene un mal rollo pendiente, se
+     * indica a éste dicho descarte para su posible actualización.
      */
     public void discardVisibleTreasure(Treasure t){
         visibleTreasures.remove(t);
@@ -261,6 +267,11 @@ public class Player {
         
     }
     
+    /**
+     * Eliminar los tesoros ocultos indicados de la lista de tesoros
+     * ocultos del jugador. Al eliminar esos tesoros, si el jugador tiene un mal rollo pendiente, se
+     * indica a éste dicho descarte para su posible actualización.
+     */
     public void discardHiddenTreasure(Treasure t){
         hiddenTreasures.remove(t);
         
@@ -273,13 +284,14 @@ public class Player {
         dieIfNoTreasures();
         
     }
-    /* Permite comprar niveles antes de combatir con el monstruo actual. Para
-       ello, a partir de las listas de tesoros (pueden ser tanto ocultos como visibles) se calculan
-       los niveles que puede subir el jugador en función del número de piezas de oro que sumen.
-       Si al jugador le está permitido comprar la cantidad de niveles resultantes (no se puede
-       comprar niveles si con ello ganas el juego), entonces se produce el mencionado
-       incremento
-    */
+    /**
+     * Permite comprar niveles antes de combatir con el monstruo actual. Para
+     * ello, a partir de las listas de tesoros (pueden ser tanto ocultos como visibles) se calculan
+     * los niveles que puede subir el jugador en función del número de piezas de oro que sumen.
+     * Si al jugador le está permitido comprar la cantidad de niveles resultantes (no se puede
+     * comprar niveles si con ello ganas el juego), entonces se produce el mencionado
+     * incremento
+     */
     public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
         boolean canI;
         int l;
@@ -326,14 +338,13 @@ public class Player {
     }
     
     /**
-     * Devuelve nivel de combate del jugador: su nivel + bonus
+     * Devuelve nivel de combate del jugador: su nivel + bonus.
+     * Si el jugador tiene un tesoro de tipo collar
+     *      todas las cartas de tesoros que tiene suman maxBonus
+     * Si no, suman minBonus
      */
     public int getCombatLevel(){
         int combatLevel = level;
-        /*Si el jugador tiene un tesoro de tipo collar
-            todas las cartas de tesoros que tiene suman maxBonus
-          Si no, suman minBonus
-        */
         
         if(hasNecklace()){
             for(Treasure t: visibleTreasures){
@@ -367,13 +378,14 @@ public class Player {
     }
     
     
-    
-//    Cuando un jugador está en su primer turno o se ha quedado sin tesoros ocultos o visibles,
-//    hay que proporcionarle nuevos tesoros para que pueda seguir jugando. El número de
-//    tesoros que se les proporciona viene dado por el valor que saque al tirar el dado:
-//    ● Si (dado == 1) roba un tesoro.
-//    ● Si (1 < dado< 6) roba dos tesoros.
-//    ● Si (dado == 6) roba tres tesoros.
+    /**
+     * Cuando un jugador está en su primer turno o se ha quedado sin tesoros ocultos o visibles,
+     * hay que proporcionarle nuevos tesoros para que pueda seguir jugando. El número de
+     * tesoros que se les proporciona viene dado por el valor que saque al tirar el dado:
+     *     Si (dado == 1) roba un tesoro.
+     *     Si (1 < dado< 6) roba dos tesoros.
+     *     Si (dado == 6) roba tres tesoros.
+     */
     public void initTreasures(){
         bringToLive();
         int num= Dice.getInstance().nextNumber();

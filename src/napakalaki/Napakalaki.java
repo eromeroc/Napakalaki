@@ -168,15 +168,20 @@ public class Napakalaki {
         return currentPlayer.canMakeTreasureVisible(t);
     }
     
-    /*
+    /**
+     * Devuelve los tesoros visibles del jugador actual
+     */ 
     public ArrayList<Treasure> getVisibleTreasures(){
-        
+        return currentPlayer.getVisibleTreasures();
     }
     
+    /**
+     * Devuelve los tesoros ocultos del jugador actual
+     */ 
     public ArrayList<Treasure> getHiddenTreasures(){
-        
+        return currentPlayer.getHiddenTreasures();
     }
-    */
+    
     
     /**
      * Usa el método nextTurnAllowed(), para verificar si currentPlayer cumple
