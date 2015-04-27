@@ -1,8 +1,8 @@
-package napakalaki;
+package Model;
 
 
-import napakalaki.Prize;
-import napakalaki.BadConsequence;
+import Model.Prize;
+import Model.BadConsequence;
 
 
 public class Monster {

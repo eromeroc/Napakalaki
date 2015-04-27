@@ -1,5 +1,5 @@
 
-package napakalaki;
+package Model;
 
 import java.util.Random;
 

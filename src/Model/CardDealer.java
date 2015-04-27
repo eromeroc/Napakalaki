@@ -1,10 +1,11 @@
-package napakalaki;
+package Model;
 
+import Model.BadConsequence;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-import napakalaki.Monster;
-import napakalaki.Treasure;
+import Model.Monster;
+import Model.Treasure;
 
 
 public class CardDealer {
@@ -293,6 +294,7 @@ public class CardDealer {
     public void initCards(){
         initTreasureCardDeck();
         initMonsterCardDeck();
+        
     }
 }
 

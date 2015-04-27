@@ -1,6 +1,5 @@
-package napakalaki;
+package Model;
 
-import napakalaki.TreasureKind;
 import java.util.ArrayList;
 
 
@@ -116,13 +115,20 @@ public class BadConsequence {
      * en el hecho de que el jugador se descarta del tesoro visible t
      */
     public void substractVisibleTreasure(Treasure t){
-        if(nVisibleTreasures > 0) nVisibleTreasures--;
+        
+        
+        if(nVisibleTreasures > 0)  nVisibleTreasures--;
+        
         else{
+            TreasureKind substract =null;
             for(TreasureKind treasure: specificVisibleTreasures){
                 if(treasure == t.getType())
-                    specificVisibleTreasures.remove(treasure);
+                    substract = treasure;
             }
+            if(substract != null)
+                specificVisibleTreasures.remove(substract);
         }
+       
         
     }
     
@@ -134,10 +140,13 @@ public class BadConsequence {
         
         if(nHiddenTreasures > 0) nHiddenTreasures--;
         else{
+            TreasureKind substract =null;
             for(TreasureKind treasure: specificHiddenTreasures){
                 if(treasure == t.getType())
-                    specificHiddenTreasures.remove(treasure);
+                     substract = treasure;
             }
+            if(substract != null)
+                specificHiddenTreasures.remove(substract);
         }
     }
     

@@ -1,4 +1,4 @@
-package napakalaki;
+package Model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,22 +16,24 @@ public class PruebaNapakalaki {
     public static void main(String[] args) {
     
         //PRUEBA CARDDEALER
-        /*   
+           
         CardDealer cartas = CardDealer.getInstance();
         cartas.initCards();
-        cartas.shuffleTreasures();
-        cartas.shuffleMonsters();
-        cartas.nextTreasure();
-        cartas.nextMonster();
+        System.out.println(cartas.nextTreasure().toString());
+        System.out.println(cartas.nextMonster().toString());
+        System.out.println(cartas.nextMonster().toString());
+        System.out.println(cartas.nextMonster().toString());
         System.out.println("Prueba CardDealer");
-        */
+        
         
         //PRUEBA NAPAKALAKI
         /*
         Napakalaki napa = Napakalaki.getInstance();
-        String names[] = {"marta", "elena"};
-        napa.initPlayers(names);
-        napa.nextPlayer();
+        ArrayList<String> names = new ArrayList<String>();
+        names.add("marta");
+        names.add("elena");
+        napa.initGame(names);
+        napa.nextTurn();
         napa.getCurrentPlayer();
         napa.getCurrentMonster();
         napa.nextTurnAllowed();

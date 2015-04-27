@@ -1,13 +1,13 @@
-package napakalaki;
+package Model;
 
 import java.util.ArrayList;
-import napakalaki.Treasure;
-import napakalaki.BadConsequence;
-import napakalaki.TreasureKind;
-import napakalaki.CardDealer;
-import napakalaki.Dice;
-import napakalaki.Prize;
-import napakalaki.Monster;
+import Model.Treasure;
+import Model.BadConsequence;
+import Model.TreasureKind;
+import Model.CardDealer;
+import Model.Dice;
+import Model.Prize;
+import Model.Monster;
 
 
 
@@ -31,6 +31,10 @@ public class Player {
         hiddenTreasures = new ArrayList<Treasure>();
         visibleTreasures = new ArrayList<Treasure>();
         pendingBadConsequence = new BadConsequence();
+    }
+    
+    public String getName(){
+        return name;
     }
     
     /**

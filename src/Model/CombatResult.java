@@ -1,4 +1,4 @@
-package napakalaki;
+package Model;
 
 
 public enum CombatResult {

@@ -1,9 +1,9 @@
-package napakalaki;
+package Model;
 
 import java.util.ArrayList;
-import napakalaki.Player;
-import napakalaki.Monster;
-import napakalaki.CardDealer;
+import Model.Player;
+import Model.Monster;
+import Model.CardDealer;
 import java.util.Random;
 
 
@@ -44,11 +44,12 @@ public class Napakalaki {
      * elementos haya en names, que es el array de String que contiene el nombre de los
      * jugadores
      */
-    private void initPlayers(String[] names){
-        for (int i = 0 ; i < names.length; i++){
-            Player jugador = new Player(names[i]);
+    private void initPlayers(ArrayList<String> names){
+        for (int i = 0 ; i < names.size(); i++){
+            Player jugador = new Player(names.get(i));
             players.add(jugador);
         }
+        currentPlayer = players.get(0);
     }
     
     /**
@@ -64,10 +65,10 @@ public class Napakalaki {
         int siguiente ;
                 
         if (currentPlayerIndex == -1){
-            siguiente = aleatorio.nextInt(players.size());
+            siguiente = aleatorio.nextInt(players.size()-1);
         }
         else{
-            if (currentPlayerIndex == players.size())
+            if (currentPlayerIndex == players.size()-1)
                 siguiente = 0;
             else
                 siguiente = currentPlayerIndex +1;
@@ -139,7 +140,7 @@ public class Napakalaki {
      * iniciar el juego con la llamada a nextTurn() para pasar al siguiente turno (que en este
      * caso será el primero).    
      */
-    public void initGame(String [] players) {
+    public void initGame(ArrayList<String> players) {
         CardDealer.getInstance().initCards();
         initPlayers(players);
         nextTurn();
@@ -196,6 +197,7 @@ public class Napakalaki {
      *      inicialización de los tesoros se encuentra recogida en el diagrama subordinado initTreasures.
      */
     public boolean nextTurn(){
+        
         boolean stateOK = nextTurnAllowed();
         
         if(stateOK){
