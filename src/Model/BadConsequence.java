@@ -171,7 +171,7 @@ public class BadConsequence {
             hidden.add(k.getType());
         }
         
-        BadConsequence bc = new BadConsequence("nuevo mal rollo",0,visible, hidden);
+        BadConsequence bc = new BadConsequence(text,levels,visible, hidden);
         return bc;
     }
     
