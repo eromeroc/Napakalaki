@@ -16,7 +16,7 @@ public class PruebaNapakalaki {
     public static void main(String[] args) {
     
         //PRUEBA CARDDEALER
-        /*   
+        /*
         CardDealer cartas = CardDealer.getInstance();
         cartas.initCards();
         System.out.println(cartas.nextTreasure().toString());
@@ -74,14 +74,10 @@ public class PruebaNapakalaki {
         
         
         //PRUEBA TREASURE
+        
         /*
         Treasure tesoros = new Treasure("nombre",3,4,5, TreasureKind.ARMOR );
-        System.out.println(tesoros.getName());
-        System.out.println(tesoros.getGolCoind());
-        System.out.println(tesoros.getMaxBonus());
-        System.out.println(tesoros.getMinBonus());
-        System.out.println(tesoros.getType());
-        System.out.println("Prueba Treasure");
+        System.out.println(tesoros.toString());
         */
         
         //PRUEBA BADCONSEQUENCE
