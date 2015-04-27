@@ -158,21 +158,50 @@ public class BadConsequence {
      * El objeto de mal rollo devuelto por adjustToFitTreasureLists solo contendrá listas
      * de tipos de tesoros o cantidades de tesoros de forma que el jugador correspondiente
      * pueda cumplir el mal rollo generado.
-     */   
+     */ 
+    
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
-        ArrayList<TreasureKind> visible = new ArrayList<TreasureKind>();
-        ArrayList<TreasureKind> hidden = new ArrayList<TreasureKind>();
-        
-        for(Treasure k:v){
-            visible.add(k.getType());
+        if (v.isEmpty() && h.isEmpty()){
+            BadConsequence bc = new BadConsequence();
+            return bc;
         }
+        else{
+            if (nVisibleTreasures > 0  || nHiddenTreasures >0){
+                int nVisible, nHidden;
+                if (nVisibleTreasures > v.size())
+                    nVisible = v.size();
+                else
+                    nVisible = nVisibleTreasures;
+    
+                if (nHiddenTreasures > v.size())
+                    nHidden = v.size();
+                else
+                    nHidden = nHiddenTreasures;
         
-        for(Treasure k:h){
-            hidden.add(k.getType());
+                BadConsequence bc = new BadConsequence(text,0,nVisible, nHidden);
+                return bc;
+            }
+            else{
+                ArrayList<TreasureKind> visible = new ArrayList<TreasureKind>();
+                ArrayList<TreasureKind> hidden = new ArrayList<TreasureKind>();
+        
+                for(Treasure k:v){
+                    for(TreasureKind j:specificVisibleTreasures){
+                        if (j == k.getType())
+                            visible.add(j);
+                    }
+                }
+         
+                for(Treasure k:h){
+                    for(TreasureKind j:specificHiddenTreasures){
+                        if (j == k.getType())
+                            visible.add(j);
+                    }
+                }
+                BadConsequence bc = new BadConsequence(text, 0, visible, hidden);
+                return bc;
+            }
         }
-        
-        BadConsequence bc = new BadConsequence("nuevo mal rollo",0,visible, hidden);
-        return bc;
     }
     
     

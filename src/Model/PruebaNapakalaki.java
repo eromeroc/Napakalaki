@@ -7,7 +7,14 @@ import java.util.Arrays;
  * @author Elena Romero y Marta Verona
  */
 
+/*
 
+    si pendingBadConsequence vacio no mostrarlo
+    tabulaciones falta player 
+
+    normas
+
+*/
 public class PruebaNapakalaki {
 
     /**
