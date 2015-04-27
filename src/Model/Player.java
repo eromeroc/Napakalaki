@@ -450,7 +450,8 @@ public class Player {
     } 
     
     public String toString(){
-        return "\nNombre: " +name+ "\nNivel: " +level;
+        return "\nNombre: " +name+ "\nNivel: " +level+
+                "\nMal rollo pendiente: " +pendingBadConsequence.toString();
     }
 
 }
