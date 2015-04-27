@@ -8,11 +8,9 @@ import java.util.Arrays;
  */
 
 /*
+
     si pendingBadConsequence vacio no mostrarlo
-    adjust
-    
-    tabulaciones
-    compra de niveles
+    tabulaciones falta player 
 
     normas
 

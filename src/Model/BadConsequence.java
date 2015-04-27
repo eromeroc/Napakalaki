@@ -158,10 +158,12 @@ public class BadConsequence {
      * El objeto de mal rollo devuelto por adjustToFitTreasureLists solo contendrá listas
      * de tipos de tesoros o cantidades de tesoros de forma que el jugador correspondiente
      * pueda cumplir el mal rollo generado.
-     */   
+     */ 
+    
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
         if (v.isEmpty() && h.isEmpty()){
             BadConsequence bc = new BadConsequence();
+            return bc;
         }
         else{
             if (nVisibleTreasures > 0  || nHiddenTreasures >0){
@@ -177,6 +179,7 @@ public class BadConsequence {
                     nHidden = nHiddenTreasures;
         
                 BadConsequence bc = new BadConsequence(text,0,nVisible, nHidden);
+                return bc;
             }
             else{
                 ArrayList<TreasureKind> visible = new ArrayList<TreasureKind>();
@@ -196,9 +199,9 @@ public class BadConsequence {
                     }
                 }
                 BadConsequence bc = new BadConsequence(text, 0, visible, hidden);
+                return bc;
             }
         }
-        return bc;
     }
     
     

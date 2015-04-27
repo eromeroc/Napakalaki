@@ -52,8 +52,8 @@ public class Treasure {
         //return "\nName =" +name+ "\nLevels =" +Integer.toString(combatLevel)+ "\nPrize =" +prize.toString()+
               //  "\nBadConsequence =" +bc.toString();
         
-        return "\nNombre: "+name+ "\nTipo: "+type.toString()+ "\nGold Coins: " +Integer.toString(goldCoins)+ 
-                "\nBonus minimo: " +Integer.toString(minBonus)+
-                "\nBonus maximo: " +Integer.toString(maxBonus);
+        return "\nNombre: "+name+ "\nTipo: "+type.toString()+ "\n\tGold Coins: " +Integer.toString(goldCoins)+ 
+                "\n\tBonus minimo: " +Integer.toString(minBonus)+
+                "\n\tBonus maximo: " +Integer.toString(maxBonus);
     }
 }
