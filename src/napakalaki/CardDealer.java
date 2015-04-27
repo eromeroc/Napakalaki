@@ -2,9 +2,7 @@ package napakalaki;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
-import napakalaki.Monster;
-import napakalaki.Treasure;
+import java.util.Collections;
 
 
 public class CardDealer {
@@ -207,14 +205,7 @@ public class CardDealer {
      * Baraja cartas de tesoros
      */
     void shuffleTreasures(){
-        Random numerosAleatorios = new Random();
-        int siguiente;
-        for(int i = 0 ; i < unusedTreasures.size() ; i++){
-            siguiente = numerosAleatorios.nextInt(unusedTreasures.size());
-            Treasure temp1 = unusedTreasures.get(i);
-            unusedTreasures.set(i,unusedTreasures.get(siguiente) );
-            unusedTreasures.set(siguiente, temp1);
-        }
+       Collections.shuffle(unusedTreasures);
         
     }
     
@@ -222,14 +213,7 @@ public class CardDealer {
      * Baraja cartas de  monstruos
      */
     void shuffleMonsters(){
-        Random numerosAleatorios = new Random();
-        int siguiente;
-        for(int i = 0 ; i < unusedMonsters.size() ; i++){
-            siguiente = numerosAleatorios.nextInt(unusedMonsters.size());
-            Monster temp1 = unusedMonsters.get(i);
-            unusedMonsters.set(i,unusedMonsters.get(siguiente) );
-            unusedMonsters.set(siguiente, temp1);
-        }
+        Collections.shuffle(unusedMonsters);
     }
     
     /**

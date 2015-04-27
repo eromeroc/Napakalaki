@@ -16,22 +16,23 @@ public class PruebaNapakalaki {
     public static void main(String[] args) {
     
         //PRUEBA CARDDEALER
-        /*   
+          
         CardDealer cartas = CardDealer.getInstance();
         cartas.initCards();
         cartas.shuffleTreasures();
         cartas.shuffleMonsters();
         cartas.nextTreasure();
-        cartas.nextMonster();
+        System.out.println(cartas.nextMonster().toString());
+        System.out.println(cartas.nextMonster().toString());
+        System.out.println(cartas.nextMonster().toString());
         System.out.println("Prueba CardDealer");
-        */
+        
         
         //PRUEBA NAPAKALAKI
-        /*
+       /* 
         Napakalaki napa = Napakalaki.getInstance();
         String names[] = {"marta", "elena"};
-        napa.initPlayers(names);
-        napa.nextPlayer();
+        napa.initGame(names);
         napa.getCurrentPlayer();
         napa.getCurrentMonster();
         napa.nextTurnAllowed();

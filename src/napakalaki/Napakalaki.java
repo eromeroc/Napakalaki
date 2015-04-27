@@ -190,10 +190,11 @@ public class Napakalaki {
      *      inicialización de los tesoros se encuentra recogida en el diagrama subordinado initTreasures.
      */
     public boolean nextTurn(){
+        nextPlayer();
         boolean stateOK = nextTurnAllowed();
         
         if(stateOK){
-            nextPlayer();
+            
             currentMonster = CardDealer.getInstance().nextMonster();
             
             if(currentPlayer.isDead()){
