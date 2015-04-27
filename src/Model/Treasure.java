@@ -39,4 +39,21 @@ public class Treasure {
     public TreasureKind getType(){
         return type;
     }
+    
+    public String toString(){
+        /*
+        private String name;
+    private int goldCoins;
+    private int minBonus;
+    private int maxBonus;
+    
+    private TreasureKind type; 
+        */
+        //return "\nName =" +name+ "\nLevels =" +Integer.toString(combatLevel)+ "\nPrize =" +prize.toString()+
+              //  "\nBadConsequence =" +bc.toString();
+        
+        return "\nNombre: "+name+ "\nTipo: "+type.toString()+ "\nGold Coins: " +Integer.toString(goldCoins)+ 
+                "\nBonus minimo: " +Integer.toString(minBonus)+
+                "\nBonus maximo: " +Integer.toString(maxBonus);
+    }
 }
