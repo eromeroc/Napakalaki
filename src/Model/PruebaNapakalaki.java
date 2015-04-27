@@ -7,7 +7,16 @@ import java.util.Arrays;
  * @author Elena Romero y Marta Verona
  */
 
+/*
+    si pendingBadConsequence vacio no mostrarlo
+    adjust
+    
+    tabulaciones
+    compra de niveles
 
+    normas
+
+*/
 public class PruebaNapakalaki {
 
     /**
