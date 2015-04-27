@@ -280,6 +280,9 @@ public class CardDealer {
         initTreasureCardDeck();
         initMonsterCardDeck();
         
+        shuffleMonsters();
+        shuffleTreasures();
+        
     }
 }
 

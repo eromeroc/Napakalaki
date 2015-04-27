@@ -16,7 +16,7 @@ public class PruebaNapakalaki {
     public static void main(String[] args) {
     
         //PRUEBA CARDDEALER
-           
+        /*   
         CardDealer cartas = CardDealer.getInstance();
         cartas.initCards();
         System.out.println(cartas.nextTreasure().toString());
@@ -24,7 +24,7 @@ public class PruebaNapakalaki {
         System.out.println(cartas.nextMonster().toString());
         System.out.println(cartas.nextMonster().toString());
         System.out.println("Prueba CardDealer");
-        
+        */
         
         //PRUEBA NAPAKALAKI
         /*
@@ -58,9 +58,10 @@ public class PruebaNapakalaki {
         Treasure t = new Treasure("Tentácula de pega", 200, 0, 1, TreasureKind.HELMET);
         ArrayList<Treasure> treasures = new ArrayList<Treasure>() ;
         treasures.add(t);
+        */
         
         Player player= new Player("nombre");
-        player.initTreasures();
+        /*player.initTreasures();
         player.applyPrize(m.getPrize());
         player.applyBadConsequence(badConsequence);
         player.discardNecklaceIfVisible(); //PONER PÚBLICO PARA PRUEBAS
@@ -69,6 +70,8 @@ public class PruebaNapakalaki {
         System.out.println(player.canMakeTreasureVisible(t));
         System.out.println(player.computeGoldCoinsValue(treasures)); //PONER PUBLICO PARA PRUEBAS (es protected)
         */
+        System.out.println(player.toString());
+        
         
         //PRUEBA TREASURE
         /*

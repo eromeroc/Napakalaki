@@ -449,5 +449,8 @@ public class Player {
         return hiddenTreasures;
     } 
     
+    public String toString(){
+        return "\nNombre: " +name+ "\nNivel: " +level;
+    }
 
 }
