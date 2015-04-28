@@ -458,8 +458,14 @@ public class Player {
     } 
     
     public String toString(){
-        return "\nNombre=: " +name+ "\nNivel: " +level+
-                "\nMal rollo pendiente: " +pendingBadConsequence.toString();
+        String output = "\nNombre:= "+name+ "\n\tNivel: "+Integer.toString(level);
+        
+        if(pendingBadConsequence.isEmpty())
+            output +=  "\n\tMal rollo pendiente vacio";
+        else
+            output += "\n\tMal rollo pendiente: "+pendingBadConsequence;
+      
+        return output;
     }
 
 }

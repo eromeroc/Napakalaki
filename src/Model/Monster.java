@@ -46,7 +46,7 @@ public class Monster {
      * Devuelve string con el estado completo del objeto
      */
     public String toString(){
-        return "\nNombre :" +name+ "\nNivel :" +Integer.toString(combatLevel)+ "\nPremio: " +prize.toString()+
-                "\nMal rollo: " +bc.toString();
+        return "\nNombre:=" +name+ "\n\tNivel :" +Integer.toString(combatLevel)+ "\n\tPremio: " +prize.toString()+
+                "\n\tMal rollo: " +bc.toString();
     }
 }
