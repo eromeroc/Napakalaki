@@ -7,14 +7,6 @@ import java.util.Arrays;
  * @author Elena Romero y Marta Verona
  */
 
-/*
-
-    si pendingBadConsequence vacio no mostrarlo
-    tabulaciones falta player 
-
-    normas
-
-*/
 public class PruebaNapakalaki {
 
     /**
@@ -65,10 +57,8 @@ public class PruebaNapakalaki {
         Treasure t = new Treasure("Tentácula de pega", 200, 0, 1, TreasureKind.HELMET);
         ArrayList<Treasure> treasures = new ArrayList<Treasure>() ;
         treasures.add(t);
-        */
-        
         Player player= new Player("nombre");
-        /*player.initTreasures();
+        player.initTreasures();
         player.applyPrize(m.getPrize());
         player.applyBadConsequence(badConsequence);
         player.discardNecklaceIfVisible(); //PONER PÚBLICO PARA PRUEBAS
@@ -76,8 +66,8 @@ public class PruebaNapakalaki {
         System.out.println(player.isDead());
         System.out.println(player.canMakeTreasureVisible(t));
         System.out.println(player.computeGoldCoinsValue(treasures)); //PONER PUBLICO PARA PRUEBAS (es protected)
-        */
         System.out.println(player.toString());
+        */
         
         
         //PRUEBA TREASURE

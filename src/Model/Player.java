@@ -183,7 +183,7 @@ public class Player {
         if(getCombatLevel() > levelMonster){
             Prize p = m.getPrize();
             applyPrize(p);
-            if(getCombatLevel() < 10){
+            if(level < 10){
                 combatResult = CombatResult.WIN;
             }
             else
@@ -225,7 +225,7 @@ public class Player {
      */
     public void applyBadConsequence(BadConsequence bq){
         decrementLevels(bq.getLevels());
-        pendingBadConsequence = bq.adjustToFitTreasureLists(hiddenTreasures,visibleTreasures);
+        pendingBadConsequence = bq.adjustToFitTreasureLists(visibleTreasures,hiddenTreasures);
         setPendingBadConsequence(pendingBadConsequence);
     }
    
@@ -251,20 +251,28 @@ public class Player {
     public boolean canMakeTreasureVisible(Treasure t){
         boolean canMakeVisible = true;
         int contador = 0;
+        boolean bothhands = false;
 
         for(Treasure treasure: visibleTreasures){
             if(treasure.getType()== TreasureKind.ONEHAND)
                 contador++;
-                
+            
+            if(treasure.getType() == TreasureKind.BOTHHANDS)
+                bothhands = true;
+            
             if(treasure.getType() == t.getType())
                 canMakeVisible = false;                
         }
             
-        if(t.getType() == TreasureKind.ONEHAND && contador <2)
-            canMakeVisible = true;
+        if(t.getType() == TreasureKind.ONEHAND){
+            if(contador<2)
+                canMakeVisible = true;
+            if(bothhands)
+                canMakeVisible = false;
+        }
         if(t.getType() == TreasureKind.BOTHHANDS && contador >0)
             canMakeVisible = false;
-   
+        
     return canMakeVisible;        
     }
     
@@ -368,19 +376,6 @@ public class Player {
         boolean usado = false;
         
         for(Treasure t: visibleTreasures){  
-            if(t.getMaxBonus() != t.getMinBonus()){
-                if(hasNecklace()){            
-                    combatLevel += t.getMaxBonus();
-                    usado = true;
-                }
-                else
-                    combatLevel += t.getMinBonus();
-            }
-            else
-                combatLevel += t.getMaxBonus();
-        }
-        
-        for(Treasure t: hiddenTreasures){  
             if(t.getMaxBonus() != t.getMinBonus()){
                 if(hasNecklace()){            
                     combatLevel += t.getMaxBonus();

@@ -65,7 +65,7 @@ public class BadConsequence {
      */
     public boolean isEmpty(){
         boolean respuesta;
-        if ((text == " ") && (nVisibleTreasures == 0) && (nHiddenTreasures == 0)
+        if ((nVisibleTreasures == 0) && (nHiddenTreasures == 0) && (levels == 0)
                 && specificHiddenTreasures.isEmpty() && specificVisibleTreasures.isEmpty() && (death  == false)){        
             respuesta = true;
         }
@@ -173,8 +173,8 @@ public class BadConsequence {
                 else
                     nVisible = nVisibleTreasures;
     
-                if (nHiddenTreasures > v.size())
-                    nHidden = v.size();
+                if (nHiddenTreasures > h.size())
+                    nHidden = h.size();
                 else
                     nHidden = nHiddenTreasures;
         
@@ -222,9 +222,9 @@ public class BadConsequence {
     }
     
     public String toString(){
-        return " " +text+ "\n\tNiveles que se pierden =" +Integer.toString(levels)+ "\n\tNº Tesoros ocultos que pierdes: " +Integer.toString(nHiddenTreasures)
-      +"\n\tNº tesoros visibles que pierdes: " +Integer.toString(nVisibleTreasures)+ "\n\tMuerte: " +Boolean.toString(death)
-       + "\n\tTesoros ocultos =" +arrayToString(specificHiddenTreasures)+ "\n\tTesoros visibles =" +arrayToString(specificVisibleTreasures)+ "\n\n"; 
+        return " " +text+ "\n\t\tNiveles que se pierden: " +Integer.toString(levels)+ "\n\t\tNº Tesoros ocultos que pierdes: " +Integer.toString(nHiddenTreasures)
+      +"\n\t\tNº tesoros visibles que pierdes: " +Integer.toString(nVisibleTreasures)+ "\n\t\tMuerte: " +Boolean.toString(death)
+       + "\n\t\tTesoros ocultos: " +arrayToString(specificHiddenTreasures)+ "\n\t\tTesoros visibles: " +arrayToString(specificVisibleTreasures)+ "\n\n"; 
     }
     
 }
