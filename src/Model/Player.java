@@ -5,6 +5,7 @@ import Model.Treasure;
 import Model.BadConsequence;
 import Model.TreasureKind;
 import Model.CardDealer;
+import Model.CombatResult;
 import Model.Dice;
 import Model.Prize;
 import Model.Monster;
@@ -458,8 +459,13 @@ public class Player {
     } 
     
     public String toString(){
-        return "\nNombre=: " +name+ "\nNivel: " +level+
-                "\nMal rollo pendiente: " +pendingBadConsequence.toString();
+        String output =  "\nNombre=: " +name+ "\n\tNivel: " +level;
+        
+        if(pendingBadConsequence.isEmpty())
+            output += "\n\tNo tienes mal rollo pendiente";
+        else
+            output += "\n\tMal rollo pendiente: " +pendingBadConsequence.toString();
+        return output;
     }
 
 }
