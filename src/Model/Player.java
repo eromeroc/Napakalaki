@@ -363,29 +363,37 @@ public class Player {
     
     /**
      * Devuelve nivel de combate del jugador: su nivel + bonus.
-     * Si el jugador tiene un tesoro de tipo collar
-     *      todas las cartas de tesoros que tiene suman maxBonus
-     * Si no, suman minBonus
+     * Si maxBonus y minBonus son diferentes
+     *      Si el jugador tiene un tesoro de tipo collar
+     *          todas las cartas de tesoros que tiene suman maxBonus
+     *      Si no, suman minBonus
      */
     public int getCombatLevel(){
         int combatLevel = level;
+        boolean necklace = hasNecklace();
         
-        if(hasNecklace()){
-            for(Treasure t: visibleTreasures){
+        for(Treasure t: visibleTreasures){  
+            if(t.getMaxBonus() != t.getMinBonus()){
+                if(hasNecklace())            
+                    combatLevel += t.getMaxBonus();
+                else
+                    combatLevel += t.getMinBonus();
+            }
+            else
                 combatLevel += t.getMaxBonus();
+        }
+        
+        for(Treasure t: hiddenTreasures){  
+            if(t.getMaxBonus() != t.getMinBonus()){
+                if(hasNecklace())            
+                    combatLevel += t.getMaxBonus();
+                else
+                    combatLevel += t.getMinBonus();
             }
-            for(Treasure t: hiddenTreasures){
+            else
                 combatLevel += t.getMaxBonus();
-            }
         }
-        else{   
-            for(Treasure t: visibleTreasures){
-                combatLevel += t.getMinBonus();
-            }
-            for(Treasure t: hiddenTreasures){
-                combatLevel += t.getMinBonus();
-            }
-        }
+        
        return combatLevel;   
     }
     
