@@ -30,6 +30,6 @@ public class Prize {
      * Devuelve string con el estado completo del objeto
      */ 
     public String toString(){
-        return "\nTreasures =" + Integer.toString(treasures)+ "\nLevels =" +Integer.toString(levels);
+        return "\n\tTesoros: " + Integer.toString(treasures)+ "\n\tNiveles: " +Integer.toString(levels);
     }
 }
