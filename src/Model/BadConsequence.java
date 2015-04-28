@@ -222,7 +222,7 @@ public class BadConsequence {
     }
     
     public String toString(){
-        return "\n\tMal rollo =" +text+ "\n\tNiveles que se pierden =" +Integer.toString(levels)+ "\n\tNº Tesoros ocultos que pierdes: " +Integer.toString(nHiddenTreasures)
+        return " " +text+ "\n\tNiveles que se pierden =" +Integer.toString(levels)+ "\n\tNº Tesoros ocultos que pierdes: " +Integer.toString(nHiddenTreasures)
       +"\n\tNº tesoros visibles que pierdes: " +Integer.toString(nVisibleTreasures)+ "\n\tMuerte: " +Boolean.toString(death)
        + "\n\tTesoros ocultos =" +arrayToString(specificHiddenTreasures)+ "\n\tTesoros visibles =" +arrayToString(specificVisibleTreasures)+ "\n\n"; 
     }

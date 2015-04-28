@@ -61,11 +61,10 @@ public class Napakalaki {
      *  Se actualiza currentPlayerIndex y currentPlayer
      */ 
     private Player nextPlayer(){
-        Random aleatorio = new Random();
         int siguiente ;
                 
         if (currentPlayerIndex == -1){
-            siguiente = aleatorio.nextInt(players.size()-1);
+            siguiente = Dice.getInstance().nextNumber() % players.size();
         }
         else{
             if (currentPlayerIndex == players.size()-1)
@@ -74,7 +73,7 @@ public class Napakalaki {
                 siguiente = currentPlayerIndex +1;
         }
         currentPlayerIndex = siguiente;
-        currentPlayer = players.get(siguiente);
+        currentPlayer = players.get(currentPlayerIndex);
         return currentPlayer;
     }   
     
@@ -219,6 +218,8 @@ public class Napakalaki {
     * Para ello usa el método de Player: validState()
     */
     public boolean nextTurnAllowed(){
+        if(currentPlayer == null)
+            return true;
         if(currentPlayer.validState() == true)
             return true;
         else

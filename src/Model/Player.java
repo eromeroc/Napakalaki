@@ -251,26 +251,21 @@ public class Player {
     public boolean canMakeTreasureVisible(Treasure t){
         boolean canMakeVisible = true;
         int contador = 0;
-        
-        if(visibleTreasures.size() > 4){
-            canMakeVisible = false;
-        }else{
-            for(Treasure treasure: visibleTreasures){
-                if(treasure.getType()== TreasureKind.ONEHAND)
-                    contador++;
+
+        for(Treasure treasure: visibleTreasures){
+            if(treasure.getType()== TreasureKind.ONEHAND)
+                contador++;
                 
-                if(treasure.getType() == t.getType())
-                    canMakeVisible = false;                
-            }
-            
-            if(t.getType() == TreasureKind.ONEHAND && contador <2)
-                canMakeVisible = true;
-            if(t.getType() == TreasureKind.BOTHHANDS && contador >0)
-                canMakeVisible = false;
+            if(treasure.getType() == t.getType())
+                canMakeVisible = false;                
         }
-        
-        return canMakeVisible;
-        
+            
+        if(t.getType() == TreasureKind.ONEHAND && contador <2)
+            canMakeVisible = true;
+        if(t.getType() == TreasureKind.BOTHHANDS && contador >0)
+            canMakeVisible = false;
+   
+    return canMakeVisible;        
     }
     
     /**
@@ -370,12 +365,14 @@ public class Player {
      */
     public int getCombatLevel(){
         int combatLevel = level;
-        boolean necklace = hasNecklace();
+        boolean usado = false;
         
         for(Treasure t: visibleTreasures){  
             if(t.getMaxBonus() != t.getMinBonus()){
-                if(hasNecklace())            
+                if(hasNecklace()){            
                     combatLevel += t.getMaxBonus();
+                    usado = true;
+                }
                 else
                     combatLevel += t.getMinBonus();
             }
@@ -385,14 +382,19 @@ public class Player {
         
         for(Treasure t: hiddenTreasures){  
             if(t.getMaxBonus() != t.getMinBonus()){
-                if(hasNecklace())            
+                if(hasNecklace()){            
                     combatLevel += t.getMaxBonus();
+                    usado = true;
+                }
                 else
                     combatLevel += t.getMinBonus();
             }
             else
                 combatLevel += t.getMaxBonus();
         }
+        
+        if(usado) discardNecklaceIfVisible();
+        
         
        return combatLevel;   
     }
@@ -403,7 +405,7 @@ public class Player {
      */
     public boolean validState(){
         boolean valid = false;
-        if(pendingBadConsequence.isEmpty() && hiddenTreasures.size() <= 4)
+        if(pendingBadConsequence.isEmpty() && hiddenTreasures.size() <= MAXHIDDENTREASURES)
             valid = true;
         
         return valid;
@@ -467,7 +469,7 @@ public class Player {
     } 
     
     public String toString(){
-        String output =  "\nNombre=: " +name+ "\n\tNivel: " +level;
+        String output =  "\nNombre: " +name+ "\n\tNivel: " +level;
         
         if(pendingBadConsequence.isEmpty())
             output += "\n\tNo tienes mal rollo pendiente";
