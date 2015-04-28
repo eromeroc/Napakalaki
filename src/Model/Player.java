@@ -249,15 +249,23 @@ public class Player {
      */
     public boolean canMakeTreasureVisible(Treasure t){
         boolean canMakeVisible = true;
+        int contador = 0;
         
         if(visibleTreasures.size() > 4){
             canMakeVisible = false;
         }else{
             for(Treasure treasure: visibleTreasures){
-                if(treasure.getType() == t.getType()){
-                    canMakeVisible = false;
-                }
+                if(treasure.getType()== TreasureKind.ONEHAND)
+                    contador++;
+                
+                if(treasure.getType() == t.getType())
+                    canMakeVisible = false;                
             }
+            
+            if(t.getType() == TreasureKind.ONEHAND && contador <2)
+                canMakeVisible = true;
+            if(t.getType() == TreasureKind.BOTHHANDS && contador >0)
+                canMakeVisible = false;
         }
         
         return canMakeVisible;
@@ -450,7 +458,7 @@ public class Player {
     } 
     
     public String toString(){
-        return "\nNombre: " +name+ "\nNivel: " +level+
+        return "\nNombre=: " +name+ "\nNivel: " +level+
                 "\nMal rollo pendiente: " +pendingBadConsequence.toString();
     }
 
