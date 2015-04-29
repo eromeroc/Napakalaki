@@ -195,7 +195,7 @@ public class BadConsequence {
                 for(Treasure k:h){
                     for(TreasureKind j:specificHiddenTreasures){
                         if (j == k.getType())
-                            visible.add(j);
+                            hidden.add(j);
                     }
                 }
                 BadConsequence bc = new BadConsequence(text, 0, visible, hidden);
