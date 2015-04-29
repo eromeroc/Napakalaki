@@ -136,7 +136,7 @@ public class Player {
             goldCoinsValue += treasure.getGolCoind();
         }
         
-        return goldCoinsValue/1000;  //1000 o 100?
+        return goldCoinsValue/1000;  
         
     }
 

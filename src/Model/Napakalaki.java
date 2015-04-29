@@ -12,7 +12,7 @@ public class Napakalaki {
     
     private Monster currentMonster; 
     private Player currentPlayer;   
-    private ArrayList<Player> players;          // 1 o más 
+    private ArrayList<Player> players;          
     private int currentPlayerIndex = -1;
     
     
