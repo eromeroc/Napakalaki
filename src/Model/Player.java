@@ -344,18 +344,12 @@ public class Player {
     
     
     /**
-     * Devuelve true si el jugador tiene un tesoro de tipo collar en el array pasado
+     * Devuelve true si el jugador tiene equipado un tesoro de tipo collar 
      */
     public boolean hasNecklace(){
         boolean hasNecklace = false;
         
         for(Treasure t: visibleTreasures){
-            if(t.getType() == TreasureKind.NECKLACE){
-                hasNecklace = true;
-            }
-        }
-        
-        for(Treasure t: hiddenTreasures){
             if(t.getType() == TreasureKind.NECKLACE){
                 hasNecklace = true;
             }
