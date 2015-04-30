@@ -7,4 +7,5 @@ public enum CombatResult {
     LOSE,
     LOSEANDESCAPE,
     LOSEANDDIE,
+    LOSEANDCONVERT,
 }

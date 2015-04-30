@@ -45,4 +45,15 @@ public class Treasure {
                 "\n\tBonus minimo: " +Integer.toString(minBonus)+
                 "\n\tBonus maximo: " +Integer.toString(maxBonus);
     }
+    
+    
+    
+    public int getBasicValue(){
+        return getMinBonus();
+    }
+        
+    public int getSpecialValue(){
+        return getMaxBonus();
+    }
+        
 }

@@ -14,7 +14,9 @@ public class CardDealer {
     ArrayList<Monster> usedMonsters;     
     
     ArrayList<Treasure> unusedTreasures; 
-    ArrayList<Treasure> usedTreasures;   
+    ArrayList<Treasure> usedTreasures; 
+    
+    ArrayList<Cultist> unusedCultist;
   
     
     private static CardDealer instance = null;
@@ -27,6 +29,7 @@ public class CardDealer {
         usedMonsters = new ArrayList<Monster>();
         unusedTreasures = new ArrayList<Treasure>() ;
         usedTreasures = new ArrayList<Treasure>() ;
+        unusedCultist = new ArrayList<>() ;
         
         initCards();
     }
@@ -206,20 +209,34 @@ public class CardDealer {
         unusedMonsters.add(new Monster("Bicéfalo", 20, badConsequence, prize));
     }
     
+    
+     private void initCultistCardDeck(){
+         // public Cultist(String name, int gainedLevels)
+         unusedCultist.add(new Cultist("Sectario", 1));
+         unusedCultist.add(new Cultist("Sectario", 2));
+         unusedCultist.add(new Cultist("Sectario", 1));
+         unusedCultist.add(new Cultist("Sectario", 2));
+         unusedCultist.add(new Cultist("Sectario", 1));
+         unusedCultist.add(new Cultist("Sectario", 1));
+     }
     /**
      * Baraja cartas de tesoros
      */
-    void shuffleTreasures(){
+    private void shuffleTreasures(){
        Collections.shuffle(unusedTreasures);        
     }
     
     /**
      * Baraja cartas de  monstruos
      */
-    void shuffleMonsters(){
+    private void shuffleMonsters(){
         Collections.shuffle(unusedMonsters);       
     }
     
+    
+    private void shuffleCultist(){
+        Collections.shuffle(unusedCultist);       
+    }
     /**
      * Devuelve el siguiente tesoro que hay en unusedTreasures y lo elimina de él.
      * Si el mazo está vacío, pasa el mazo de descartes al de tesoros y lo baraja
@@ -232,7 +249,8 @@ public class CardDealer {
             usedTreasures.clear();
             shuffleTreasures();
         }
-        nextTreasure = unusedTreasures.get(unusedMonsters.size()-1); //¿Cogemos el último o el 0?
+        nextTreasure = unusedTreasures.get(unusedMonsters.size()-1); 
+        usedTreasures.add(unusedTreasures.get(unusedTreasures.size()-1));
         unusedTreasures.remove(unusedMonsters.size()-1);
         
         return nextTreasure;
@@ -250,13 +268,24 @@ public class CardDealer {
             usedMonsters.clear();
             shuffleMonsters();
         }
-        nextMonster = unusedMonsters.get(unusedMonsters.size()-1); //¿Cogemos el último o el 0?
+        nextMonster = unusedMonsters.get(unusedMonsters.size()-1);
+        usedMonsters.add(unusedMonsters.get(unusedMonsters.size()-1));
         unusedMonsters.remove(unusedMonsters.size()-1);
-        
         return nextMonster;
       
     }
     
+    
+    public Cultist nextCultist(){
+        Cultist nextCultist;
+        
+        nextCultist = unusedCultist.get(unusedCultist.size()-1); 
+        unusedCultist.remove(unusedCultist.size()-1);
+        
+        return nextCultist;
+    }
+        
+   
     
     /**
      * Introduce en el mazo de cartas de tesoros(usedTreasures) el tesoro t
@@ -281,9 +310,11 @@ public class CardDealer {
     public void initCards(){
         initTreasureCardDeck();
         initMonsterCardDeck();
+        initCultistCardDeck();
         
         shuffleMonsters();
         shuffleTreasures();
+        shuffleCultist();
         
     }
 }

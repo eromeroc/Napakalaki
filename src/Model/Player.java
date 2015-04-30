@@ -23,6 +23,8 @@ public class Player {
     private ArrayList<Treasure> visibleTreasures;
     private BadConsequence pendingBadConsequence;
     
+    private static int totalCultistPlayers = 0;
+    
     /**
      * Constructor
      */
@@ -178,7 +180,7 @@ public class Player {
     */
     public CombatResult combat(Monster m){
         CombatResult combatResult;
-        int levelMonster = m.getCombatLevel();
+        int levelMonster = getOponentLevel(m);
         
         if(getCombatLevel() > levelMonster){
             Prize p = m.getPrize();
@@ -203,8 +205,13 @@ public class Player {
                     combatResult = CombatResult.LOSEANDDIE;
                 }
                 else{
-                    applyBadConsequence(bq);
-                    combatResult = CombatResult.LOSE;
+                    if(shouldConvert())
+                        //se aplica bc?? 
+                        combatResult = CombatResult.LOSEANDCONVERT;
+                    else{
+                        applyBadConsequence(bq);
+                        combatResult = CombatResult.LOSE;
+                    }
                 }
             }
             
@@ -466,5 +473,30 @@ public class Player {
             output += "\n\tMal rollo pendiente: " +pendingBadConsequence.toString();
         return output;
     }
+    
+    protected int getOponentLevel(Monster m ){
+        return m.getBasicValue();
+    }
+    
+    public Player(Player p ){
+        dead = p.dead;
+        name = p.name;
+        level = p.level;
+        hiddenTreasures = p.hiddenTreasures;
+        visibleTreasures = p.visibleTreasures;
+        pendingBadConsequence= p.pendingBadConsequence;
+        
+       // return this;
+    }
+    
+    protected boolean shouldConvert(){
+        
+        if(Dice.getInstance().nextNumber() == 6)
+            return true;
+        else
+            return false;
+      
+    }
+    //shouldConvert
 
 }

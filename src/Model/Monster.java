@@ -11,16 +11,24 @@ public class Monster {
     
     private Prize prize;
     private BadConsequence bc;
+    private int levelChangeAgainstCultistPlayer;
     
     /**
      * Constructor
      */
+    public Monster(String name, int combatLevel, BadConsequence bc, Prize prize, int change){
+        this(name,combatLevel,bc,prize);
+        change = levelChangeAgainstCultistPlayer = change; 
+    }
+    
     public Monster(String name, int combatLevel, BadConsequence bc, Prize prize){
         this.name = name;
         this.combatLevel = combatLevel;
         this.bc = bc;
         this.prize = prize;
+        levelChangeAgainstCultistPlayer = 0 ; 
     }
+    
     
    /**
     * Consultores
@@ -48,5 +56,17 @@ public class Monster {
     public String toString(){
         return "\nNombre:" +name+ "\n\tNivel :" +Integer.toString(combatLevel)+ "\n\tPremio: " +prize.toString()+
                 "\n\tMal rollo: " +bc.toString();
+    }
+    
+    public int getLevelChangeAgainstCultistPlayer(){
+        return levelChangeAgainstCultistPlayer;
+    }
+    public int getBasicValue(){
+        return getCombatLevel();
+    }
+        
+    public int getSpecialValue(){
+        return getCombatLevel() + getLevelChangeAgainstCultistPlayer();
+        
     }
 }
