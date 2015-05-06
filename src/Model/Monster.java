@@ -5,7 +5,7 @@ import Model.Prize;
 import Model.BadConsequence;
 
 
-public class Monster {
+public class Monster implements Card{
     private String name;     //nombre monstruo
     private int combatLevel; //nivel de combate
     

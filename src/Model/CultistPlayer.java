@@ -23,7 +23,7 @@ public class CultistPlayer extends Player{
         cultist = c;
     }
  
-    
+    //@override
     public int getCombatLevel(){
         int level = player.getCombatLevel();
         level+= cultist.getSpecialValue();

@@ -2,7 +2,7 @@
 package Model;
 
 
-public class Treasure {
+public class Treasure implements Card{
     private String name;
     private int goldCoins;
     private int minBonus;
