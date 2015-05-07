@@ -92,14 +92,18 @@ public class Player {
      * y lo elimina de sus tesoros visibles
      */
     private void discardNecklaceIfVisible(){
+        ArrayList<Treasure> aux = new ArrayList<Treasure>();
         
         for(Treasure treasure: visibleTreasures){
-                if(treasure.getType() == TreasureKind.NECKLACE){
-                    CardDealer.getInstance().giveTreasureBack(treasure);
-                    visibleTreasures.remove(treasure);
-                }
+            if(treasure.getType() == TreasureKind.NECKLACE){
+                CardDealer.getInstance().giveTreasureBack(treasure);
             }
+            else{
+                aux.add(treasure);
+            }
+        }
         
+        visibleTreasures=aux;
     }
     
     
