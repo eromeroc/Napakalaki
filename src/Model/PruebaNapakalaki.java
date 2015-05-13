@@ -15,15 +15,14 @@ public class PruebaNapakalaki {
     public static void main(String[] args) {
     
         //PRUEBA CARDDEALER
-        /*
-        CardDealer cartas = CardDealer.getInstance();
-        cartas.initCards();
-        System.out.println(cartas.nextTreasure().toString());
-        System.out.println(cartas.nextMonster().toString());
-        System.out.println(cartas.nextMonster().toString());
-        System.out.println(cartas.nextMonster().toString());
-        System.out.println("Prueba CardDealer");
-        */
+        
+//        CardDealer cartas = CardDealer.getInstance();
+//        cartas.initCards();
+//        System.out.println(cartas.nextCultist().toString()); //No hace bien el toString
+//        System.out.println(cartas.nextTreasure().toString());
+//        System.out.println(cartas.nextMonster().toString());
+//        System.out.println("Prueba CardDealer");
+        
         
         //PRUEBA NAPAKALAKI
         /*
@@ -49,33 +48,37 @@ public class PruebaNapakalaki {
         */
         
         //PRUEBA PLAYER
-        /*
-        BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta", 0,      
-        new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR))); 
-        Prize prize = new Prize(2,1);
-        Monster m = new Monster("3 Byakhees de bonanza", 8, badConsequence, prize);
-        Treasure t = new Treasure("Tentácula de pega", 200, 0, 1, TreasureKind.HELMET);
-        ArrayList<Treasure> treasures = new ArrayList<Treasure>() ;
-        treasures.add(t);
-        Player player= new Player("nombre");
-        player.initTreasures();
-        player.applyPrize(m.getPrize());
-        player.applyBadConsequence(badConsequence);
-        player.discardNecklaceIfVisible(); //PONER PÚBLICO PARA PRUEBAS
-        player.die(); // PONER PUBLICO PARA PRUEBAS
-        System.out.println(player.isDead());
-        System.out.println(player.canMakeTreasureVisible(t));
-        System.out.println(player.computeGoldCoinsValue(treasures)); //PONER PUBLICO PARA PRUEBAS (es protected)
-        System.out.println(player.toString());
-        */
+        
+//        BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta", 0,      
+//        new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR))); 
+//        Prize prize = new Prize(2,1);
+//        Monster m = new Monster("3 Byakhees de bonanza", 8, badConsequence, prize);
+//        Treasure t = new Treasure("Tentácula de pega", 200, 0, 1, TreasureKind.HELMET);
+//        ArrayList<Treasure> treasures = new ArrayList<Treasure>() ;
+//        treasures.add(t);
+//        Player player= new Player("nombre");
+//        player.initTreasures();
+//        player.applyPrize(m.getPrize());
+//        player.applyBadConsequence(badConsequence);
+//        player.discardNecklaceIfVisible(); //PONER PÚBLICO PARA PRUEBAS
+//        player.die(); // PONER PUBLICO PARA PRUEBAS
+//        System.out.println(player.isDead());
+//        System.out.println(player.canMakeTreasureVisible(t));
+//        System.out.println(player.computeGoldCoinsValue(treasures)); //PONER PUBLICO PARA PRUEBAS (es protected)
+//        System.out.println(player.toString());
+        //System.out.println(player.shouldConvert());
+        
         
         
         //PRUEBA TREASURE
         
-        /*
-        Treasure tesoros = new Treasure("nombre",3,4,5, TreasureKind.ARMOR );
-        System.out.println(tesoros.toString());
-        */
+        
+//        Treasure tesoros = new Treasure("nombre",3,4,5, TreasureKind.ARMOR );
+//        System.out.println(tesoros.toString());
+//        System.out.println(tesoros.getBasicValue());
+//        System.out.println(tesoros.getSpecialValue());
+        
+        
         
         //PRUEBA BADCONSEQUENCE
         /*
@@ -89,6 +92,15 @@ public class PruebaNapakalaki {
         bc.adjustToFitTreasureLists(visible,hidden);
         System.out.println("Prueba BC");
         */
+        
+        //PRUEBA CULTIST
+        
+//        Cultist pc = new Cultist("j1",2);
+//        System.out.println(pc.getBasicValue());
+//        System.out.println(pc.getSpecialValue());
+//        System.out.println(pc.getGainedLevels());
+//        System.out.println(pc.toString()); //toString MAL
+        
     }
     
 }
