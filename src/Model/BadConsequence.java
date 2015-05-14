@@ -184,18 +184,24 @@ public class BadConsequence {
             else{
                 ArrayList<TreasureKind> visible = new ArrayList<TreasureKind>();
                 ArrayList<TreasureKind> hidden = new ArrayList<TreasureKind>();
-        
+                boolean añadido;
                 for(Treasure k:v){
+                    añadido = false;
                     for(TreasureKind j:specificVisibleTreasures){
-                        if (j == k.getType())
-                            visible.add(j);
+                        if (j == k.getType() && !añadido){
+                                visible.add(j);
+                                añadido = true;
+                        }
                     }
                 }
-         
+                
                 for(Treasure k:h){
+                    añadido = false;
                     for(TreasureKind j:specificHiddenTreasures){
-                        if (j == k.getType())
+                        if (j == k.getType()  && !añadido){
                             hidden.add(j);
+                            añadido = true;
+                        }
                     }
                 }
                 BadConsequence bc = new BadConsequence(text, 0, visible, hidden);
