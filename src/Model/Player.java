@@ -33,7 +33,7 @@ public class Player {
         level = 1;
         hiddenTreasures = new ArrayList<Treasure>();
         visibleTreasures = new ArrayList<Treasure>();
-        pendingBadConsequence = new BadConsequence();
+        pendingBadConsequence = new BadConsequenceNumTreasures(" ",0,0,0);
     }
     
     public String getName(){
@@ -221,6 +221,8 @@ public class Player {
             
         }
         
+        discardNecklaceIfVisible();
+        
         return combatResult;
     }
     
@@ -378,23 +380,15 @@ public class Player {
      */
     public int getCombatLevel(){
         int combatLevel = level;
-        boolean usado = false;
         
-        for(Treasure t: visibleTreasures){  
-            if(t.getMaxBonus() != t.getMinBonus()){
-                if(hasNecklace()){            
+        if(hasNecklace()){
+            for(Treasure t: visibleTreasures)          
                     combatLevel += t.getMaxBonus();
-                    usado = true;
-                }
-                else
-                    combatLevel += t.getMinBonus();
-            }
-            else
-                combatLevel += t.getMaxBonus();
         }
-        
-        if(usado) discardNecklaceIfVisible();
-        
+        else{
+            for(Treasure t: visibleTreasures)           
+                    combatLevel += t.getMinBonus();
+        }
         
        return combatLevel;   
     }

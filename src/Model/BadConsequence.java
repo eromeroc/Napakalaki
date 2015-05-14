@@ -3,61 +3,16 @@ package Model;
 import java.util.ArrayList;
 
 
-public class BadConsequence {
+public abstract class BadConsequence {
+    //package
+    String text;            //Mal rollo
+    int levels;             //Niveles que se pierden
+    int nHiddenTreasures;   //Nº tesoros ocultos que se pierden
+    int nVisibleTreasures;  //Nº tesoros visibles que se pierden
+    boolean death;          //Mal rollo de tipo muerte
     
-    private String text;            //Mal rollo
-    private int levels;             //Niveles que se pierden
-    private int nHiddenTreasures;   //Nº tesoros ocultos que se pierden
-    private int nVisibleTreasures;  //Nº tesoros visibles que se pierden
-    private boolean death;          //Mal rollo de tipo muerte
-    
-    private ArrayList<TreasureKind> specificHiddenTreasures;
-    private ArrayList<TreasureKind> specificVisibleTreasures;
-    
-    /**
-     * Constructores
-     */
-    public BadConsequence(){
-        text = " ";
-        levels = 0;
-        nHiddenTreasures = 0;
-        nVisibleTreasures = 0;
-        death = false;
-        specificHiddenTreasures = new ArrayList<TreasureKind>();
-        specificVisibleTreasures = new ArrayList<TreasureKind>();        
-    }
-    
-    public BadConsequence(String text, int levels, int nVisible, int nHidden){
-        this.text = text;
-        this.levels = levels;
-        this.nHiddenTreasures = nHidden;
-        this.nVisibleTreasures = nVisible;
-        this.death = false;
-        
-        specificHiddenTreasures = new ArrayList<TreasureKind>();
-        specificVisibleTreasures = new ArrayList<TreasureKind>();
-    }
-    
-    public BadConsequence(String text, boolean death){
-        this.text = text;
-        this.death = death;
-        this.nHiddenTreasures = 0;
-        this.nVisibleTreasures = 0;
-        
-        specificHiddenTreasures = new ArrayList<TreasureKind>();
-        specificVisibleTreasures = new ArrayList<TreasureKind>();
-    }
-    
-    public BadConsequence(String text, int levels,ArrayList<TreasureKind> tVisible, ArrayList<TreasureKind> tHidden){
-        this.text = text;
-        this.levels = levels;
-        this.death = false;
-        this.specificHiddenTreasures = tHidden;
-        this.specificVisibleTreasures = tVisible;
-        
-        nHiddenTreasures = 0;
-        nVisibleTreasures = 0;
-    }
+    ArrayList<TreasureKind> specificHiddenTreasures;
+    ArrayList<TreasureKind> specificVisibleTreasures;
     
     /**
      * Devuelve true cuando el mal rollo está vacío, es decir, el conjunto de atributos
@@ -66,7 +21,7 @@ public class BadConsequence {
     public boolean isEmpty(){
         boolean respuesta;
         if ((nVisibleTreasures == 0) && (nHiddenTreasures == 0) && (levels == 0)
-                && specificHiddenTreasures.isEmpty() && specificVisibleTreasures.isEmpty() && (death  == false)){        
+                && specificHiddenTreasures.isEmpty() && specificVisibleTreasures.isEmpty()){        
             respuesta = true;
         }
         else
@@ -162,7 +117,7 @@ public class BadConsequence {
     
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
         if (v.isEmpty() && h.isEmpty()){
-            BadConsequence bc = new BadConsequence();
+            BadConsequence bc = new BadConsequenceNumTreasures(text, 0, 0, 0);
             return bc;
         }
         else{
@@ -178,7 +133,7 @@ public class BadConsequence {
                 else
                     nHidden = nHiddenTreasures;
         
-                BadConsequence bc = new BadConsequence(text,0,nVisible, nHidden);
+                BadConsequence bc = new BadConsequenceNumTreasures(text,0,nVisible, nHidden);
                 return bc;
             }
             else{
@@ -198,7 +153,7 @@ public class BadConsequence {
                             hidden.add(j);
                     }
                 }
-                BadConsequence bc = new BadConsequence(text, 0, visible, hidden);
+                BadConsequence bc = new BadConsequenceTypeTreasures(text, 0, visible, hidden);
                 return bc;
             }
         }
