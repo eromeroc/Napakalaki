@@ -60,7 +60,7 @@ public class BadConsequenceNumTreasures extends BadConsequence{
     }
     
     public String toString(){
-        return " " +text+ "\n\t\tNiveles que se pierden: " +Integer.toString(levels)+ "\n\t\tNº Tesoros ocultos que pierdes: " +Integer.toString(nHiddenTreasures)
+        return "Esto es un mal rollo con el siguiente contenido: \n" +text+ "\n\t\tNiveles que se pierden: " +Integer.toString(levels)+ "\n\t\tNº Tesoros ocultos que pierdes: " +Integer.toString(nHiddenTreasures)
       +"\n\t\tNº tesoros visibles que pierdes: " +Integer.toString(nVisibleTreasures);
     }
 }
