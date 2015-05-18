@@ -18,7 +18,7 @@ public class Monster implements Card{
      */
     public Monster(String name, int combatLevel, BadConsequence bc, Prize prize, int change){
         this(name,combatLevel,bc,prize);
-        change = levelChangeAgainstCultistPlayer = change; 
+        levelChangeAgainstCultistPlayer = change; 
     }
     
     public Monster(String name, int combatLevel, BadConsequence bc, Prize prize){

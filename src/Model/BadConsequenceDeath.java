@@ -19,4 +19,33 @@ public class BadConsequenceDeath extends BadConsequence{
         specificHiddenTreasures = new ArrayList<TreasureKind>();
          
     }
+     
+     
+     @Override
+    public void substractVisibleTreasure(Treasure t){
+       
+    }
+    
+    
+    @Override
+    public void substractHiddenTreasure(Treasure t){
+    }
+    
+    
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
+        return this;
+    }
+    
+    public boolean isEmpty(){
+        if ((levels == 0))     
+            return true;
+        else
+            return false;
+        
+    }
+    
+    public String toString(){
+        return " " +text+
+       "\n\t\tMuerte: " +Boolean.toString(death);
+    }
 }

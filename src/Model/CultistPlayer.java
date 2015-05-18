@@ -14,30 +14,34 @@ import java.util.ArrayList;
  */
 public class CultistPlayer extends Player{
 
-    private static int totalCultistPlayer ;
-    private Player player;
-    private Cultist cultist;
+    private static int totalCultistPlayer =0;
+    private Cultist myCultistCard;
     
     public CultistPlayer(Player p, Cultist c){
-        super(p);
-        cultist = c;
+        super("caca");
+        super.copyPlayer(p);
+        myCultistCard = c;
+        totalCultistPlayer +=1;
     }
  
-    //@override
+    @Override
     public int getCombatLevel(){
-        int level = player.getCombatLevel();
-        level+= cultist.getSpecialValue();
+        int level = super.getCombatLevel();
+        level+= myCultistCard.getSpecialValue();
         return level;
     }
     
+    @Override
     protected int getOponentLevel(Monster m ){
         return m.getSpecialValue();
     }
     
+    @Override
     protected boolean shouldConvert(){
         return false; //Por defecto
     }
     
+    @Override
     protected float computeGoldCoinsValue(ArrayList<Treasure> t){
         float goldCoinsValue = 0;
         
@@ -46,7 +50,6 @@ public class CultistPlayer extends Player{
         }
         goldCoinsValue *=2;
         return goldCoinsValue/1000;  
-        
     }
     
     public static int getTotalCultistPlayers(){

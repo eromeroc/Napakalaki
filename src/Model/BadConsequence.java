@@ -18,17 +18,7 @@ public abstract class BadConsequence {
      * Devuelve true cuando el mal rollo está vacío, es decir, el conjunto de atributos
      * de mal rollo indican que no hay mal rollo que cumplir
      */
-    public boolean isEmpty(){
-        boolean respuesta;
-        if ((nVisibleTreasures == 0) && (nHiddenTreasures == 0) && (levels == 0)
-                && specificHiddenTreasures.isEmpty() && specificVisibleTreasures.isEmpty()){        
-            respuesta = true;
-        }
-        else
-            respuesta = false;
-        
-        return respuesta;
-    }
+    public abstract boolean isEmpty();
     
     /**
      * Devuelve true si un mal rollo es muerte
@@ -68,42 +58,14 @@ public abstract class BadConsequence {
     /**
      * Actualiza el mal rollo (que tiene que cumplir el jugador) basandose
      * en el hecho de que el jugador se descarta del tesoro visible t
+     * @param Treasure t
      */
-    public void substractVisibleTreasure(Treasure t){
-        
-        
-        if(nVisibleTreasures > 0)  nVisibleTreasures--;
-        
-        else{
-            TreasureKind substract =null;
-            for(TreasureKind treasure: specificVisibleTreasures){
-                if(treasure == t.getType())
-                    substract = treasure;
-            }
-            if(substract != null)
-                specificVisibleTreasures.remove(substract);
-        }
-       
-        
-    }
-    
+    public abstract void substractVisibleTreasure(Treasure t);
     /**
      * Actualiza el mal rollo (que tiene que cumplir el jugador) basandose
      * en el hecho de que el jugador se descarta del tesoro oculto t
      */
-    public void substractHiddenTreasure(Treasure t){
-        
-        if(nHiddenTreasures > 0) nHiddenTreasures--;
-        else{
-            TreasureKind substract =null;
-            for(TreasureKind treasure: specificHiddenTreasures){
-                if(treasure == t.getType())
-                     substract = treasure;
-            }
-            if(substract != null)
-                specificHiddenTreasures.remove(substract);
-        }
-    }
+    public abstract void substractHiddenTreasure(Treasure t);
     
     
     /**
@@ -115,77 +77,9 @@ public abstract class BadConsequence {
      * pueda cumplir el mal rollo generado.
      */ 
     
-    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
-        if (v.isEmpty() && h.isEmpty()){
-            BadConsequence bc = new BadConsequenceNumTreasures(text, 0, 0, 0);
-            return bc;
-        }
-        else{
-            if (nVisibleTreasures > 0  || nHiddenTreasures >0){
-                int nVisible, nHidden;
-                if (nVisibleTreasures > v.size())
-                    nVisible = v.size();
-                else
-                    nVisible = nVisibleTreasures;
+    public abstract BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h);
     
-                if (nHiddenTreasures > h.size())
-                    nHidden = h.size();
-                else
-                    nHidden = nHiddenTreasures;
-        
-                BadConsequence bc = new BadConsequenceNumTreasures(text,0,nVisible, nHidden);
-                return bc;
-            }
-            else{
-                ArrayList<TreasureKind> visible = new ArrayList<TreasureKind>();
-                ArrayList<TreasureKind> hidden = new ArrayList<TreasureKind>();
-                boolean añadido;
-                for(Treasure k:v){
-                    añadido = false;
-                    for(TreasureKind j:specificVisibleTreasures){
-                        if (j == k.getType() && !añadido){
-                                visible.add(j);
-                                añadido = true;
-                        }
-                    }
-                }
-                
-                for(Treasure k:h){
-                    añadido = false;
-                    for(TreasureKind j:specificHiddenTreasures){
-                        if (j == k.getType()  && !añadido){
-                            hidden.add(j);
-                            añadido = true;
-                        }
-                    }
-                }
-                BadConsequence bc = new BadConsequenceTypeTreasures(text, 0, visible, hidden);
-                return bc;
-            }
-        }
-    }
-    
-    
-    
-    
-    public String arrayToString(ArrayList<TreasureKind> kindList){
-        String aux = " ";
-        
-        if(kindList.isEmpty()){
-            aux = "Ninguno";
-        }
-        else{
-            for(TreasureKind k: kindList){
-                aux+= k.toString() + ", ";
-            }
-        }
-        return aux;
-    }
-    
-    public String toString(){
-        return " " +text+ "\n\t\tNiveles que se pierden: " +Integer.toString(levels)+ "\n\t\tNº Tesoros ocultos que pierdes: " +Integer.toString(nHiddenTreasures)
-      +"\n\t\tNº tesoros visibles que pierdes: " +Integer.toString(nVisibleTreasures)+ "\n\t\tMuerte: " +Boolean.toString(death)
-       + "\n\t\tTesoros ocultos: " +arrayToString(specificHiddenTreasures)+ "\n\t\tTesoros visibles: " +arrayToString(specificVisibleTreasures)+ "\n\n"; 
-    }
+   
+    public abstract String toString();
     
 }

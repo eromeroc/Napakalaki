@@ -463,7 +463,8 @@ public class Player {
     } 
     
     public String toString(){
-        String output =  "\nNombre: " +name+ "\n\tNivel: " +level;
+        String output =  "\nNombre: " +name+ "\n\tNivel: " +level+
+                "\n\tNivel de combate:" +getCombatLevel();
         
         if(pendingBadConsequence.isEmpty())
             output += "\n\tNo tienes mal rollo pendiente";
@@ -476,7 +477,7 @@ public class Player {
         return m.getBasicValue();
     }
     
-    public Player(Player p ){
+    public void copyPlayer(Player p ){
         dead = p.dead;
         name = p.name;
         level = p.level;

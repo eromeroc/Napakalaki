@@ -41,11 +41,11 @@ public class PruebaNapakalaki {
         */
         
         //PRUEBA DICE
-        /*
-        Dice dice = Dice.getInstance();
-        for(int i = 0; i<6; i++)
-            System.out.println(dice.nextNumber());
-        */
+        
+//        Dice dice = Dice.getInstance();
+//        for(int i = 0; i<6; i++)
+//            System.out.println(dice.nextNumber());
+        
         
         //PRUEBA PLAYER
         
@@ -70,6 +70,16 @@ public class PruebaNapakalaki {
         
         
         
+        
+        //PRUEBA CULTIST
+        Player p = new Player("mgs");
+        CultistPlayer cul = new CultistPlayer(p,CardDealer.getInstance().nextCultist());
+        System.out.println(cul.toString());
+        System.out.println(p.toString());
+        
+        
+        
+        
         //PRUEBA TREASURE
         
         
@@ -81,8 +91,11 @@ public class PruebaNapakalaki {
         
         
         //PRUEBA BADCONSEQUENCE
-        /*
-        BadConsequence bc = new BadConsequence("prueba", true);
+        
+        BadConsequence bc = new BadConsequenceDeath("prueba");
+         BadConsequence bc2 = new BadConsequenceNumTreasures("prueba",0,0,0);
+         bc = bc2;
+         bc2= bc;
         Treasure v = new Treasure("s", 0,0,0,TreasureKind.ARMOR);
         Treasure h = new Treasure("s", 0,0,0,TreasureKind.ARMOR);
         ArrayList<Treasure> hidden = new ArrayList<Treasure>();
@@ -91,7 +104,7 @@ public class PruebaNapakalaki {
         hidden.add(v);
         bc.adjustToFitTreasureLists(visible,hidden);
         System.out.println("Prueba BC");
-        */
+        
         
         //PRUEBA CULTIST
         
