@@ -122,7 +122,7 @@ public class CardDealer {
         unusedMonsters.add(new Monster("Ángeles de la noche ibicenca", 14, badConsequence, prize));
     
         //Crea monstruo "El gorrón en el umbral"
-        badConsequence = new BadConsequenceNumTreasures("Pierdes todos tus tesoros visibles", 0, 6,0);
+        badConsequence = new BadConsequenceNumTreasures("Pierdes todos tus tesoros visibles", 0, 7,0);
         prize = new Prize(3,1);
         unusedMonsters.add(new Monster("El gorrón en el umbral",10, badConsequence, prize));
     
@@ -207,6 +207,48 @@ public class CardDealer {
              new ArrayList(Arrays.asList(TreasureKind.ONEHAND,TreasureKind.ONEHAND,TreasureKind.BOTHHANDS)), new ArrayList());
         prize = new Prize(1,1);
         unusedMonsters.add(new Monster("Bicéfalo", 20, badConsequence, prize));
+        
+        
+ 
+        //SECTARIOS
+        //Crea monstruo El mal indecible impronunciable
+        badConsequence = new BadConsequenceTypeTreasures("Pierdes una mano visible", 0,
+             new ArrayList(Arrays.asList(TreasureKind.ONEHAND)), new ArrayList());
+        prize = new Prize(3,1);
+        unusedMonsters.add(new Monster("El mal indecible impronunciable", 10, badConsequence, prize,-2));
+        
+        //Crea monstruo Testigos oculares
+        badConsequence = new BadConsequenceNumTreasures("Pierdes tus tesoros visibles. Jajaja", 0,7,0);
+        prize = new Prize(2,1);
+        unusedMonsters.add(new Monster("Testigos oculares", 6, badConsequence, prize,2));
+        
+        //Crea monstruo El gran Cthulhu
+        badConsequence = new BadConsequenceDeath("Hoy no es tu dia de suerte, mueres.");
+        prize = new Prize(2,5);
+        unusedMonsters.add(new Monster("El gran Cthulhu", 20, badConsequence, prize,4));
+        
+        //Crea monstruo Serpiente político
+        badConsequence = new BadConsequenceNumTreasures("Tu gobierno te recorta dos niveles.", 2,0,0);
+        prize = new Prize(2,1);
+        unusedMonsters.add(new Monster("Serpiente político", 8, badConsequence, prize,-2));
+        
+        //Crea monstruo Felpuggoth
+        badConsequence = new BadConsequenceTypeTreasures("Pierdes tu casco y armadura visible.Pierdes tus manos ocultas", 0,
+             new ArrayList(Arrays.asList(TreasureKind.ARMOR,TreasureKind.HELMET)), 
+                new ArrayList(Arrays.asList(TreasureKind.ONEHAND,TreasureKind.ONEHAND,TreasureKind.ONEHAND,TreasureKind.ONEHAND,
+                        TreasureKind.BOTHHANDS,TreasureKind.BOTHHANDS,TreasureKind.BOTHHANDS,TreasureKind.BOTHHANDS)));
+        prize = new Prize(1,1);
+        unusedMonsters.add(new Monster("Felpuggoth", 2, badConsequence, prize,5));
+        
+        //Crea monstruo Shoggoth
+        badConsequence = new BadConsequenceNumTreasures("Pierdes dos niveles",2,0,0);
+        prize = new Prize(4,2);
+        unusedMonsters.add(new Monster("Shoggoth", 16, badConsequence, prize,-4));
+        
+        //Crea monstruo Lolitaggoth
+        badConsequence = new BadConsequenceNumTreasures("Pintalabios negro. Pierdes dos niveles",2,0,0);
+        prize = new Prize(1,1);
+        unusedMonsters.add(new Monster("Lolitaggoth", 2, badConsequence, prize,3));
     }
     
     
