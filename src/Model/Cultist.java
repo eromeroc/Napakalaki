@@ -7,40 +7,24 @@ package Model;
 
 import java.util.ArrayList;
 
-public class Cultist extends Player implements Card {
+public class Cultist implements Card {
     private String name ;
     private int gainedLevels;
-    private ArrayList<CardDealer> unusedCultist;
-    private CultistPlayer myCultistCard;
+    //private ArrayList<CardDealer> unusedCultist;
+    //private CultistPlayer myCultistCard;
     
     
     public Cultist(String name, int gainedLevels){
-        super(name);
+        this.name = name;
         this.gainedLevels = gainedLevels;
     }
     
-    public int getGainedLevels(){
-        return gainedLevels;
-    }
-    
     public int getBasicValue(){
-        return  getGainedLevels();
+        return  gainedLevels;
     }
         
     public int getSpecialValue(){
         return getBasicValue()*CultistPlayer.getTotalCultistPlayers();
     }
-     
-    @Override //POR QUE DA ERROR??
-    protected boolean shouldConvert(){
-        return false;
-    }
-    
-    @Override
-    public int getCombatLevel(){
-        int level = getSpecialValue();
-        level += super.getCombatLevel();
-        
-        return level;
-    }
+   
 }

@@ -61,6 +61,7 @@ public class Monster implements Card{
     public int getLevelChangeAgainstCultistPlayer(){
         return levelChangeAgainstCultistPlayer;
     }
+    
     public int getBasicValue(){
         return getCombatLevel();
     }

@@ -210,7 +210,6 @@ public class Player {
                 }
                 else{
                     if(shouldConvert())
-                        //se aplica bc?? 
                         combatResult = CombatResult.LOSEANDCONVERT;
                     else{
                         applyBadConsequence(bq);

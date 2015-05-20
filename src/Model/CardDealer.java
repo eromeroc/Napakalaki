@@ -29,7 +29,7 @@ public class CardDealer {
         usedMonsters = new ArrayList<Monster>();
         unusedTreasures = new ArrayList<Treasure>() ;
         usedTreasures = new ArrayList<Treasure>() ;
-        unusedCultist = new ArrayList<>() ;
+        unusedCultist = new ArrayList<Cultist>() ;
         
         initCards();
     }
@@ -250,7 +250,7 @@ public class CardDealer {
             shuffleTreasures();
         }
         nextTreasure = unusedTreasures.get(unusedMonsters.size()-1); 
-        usedTreasures.add(unusedTreasures.get(unusedTreasures.size()-1));
+        giveTreasureBack(unusedTreasures.get(unusedTreasures.size()-1));
         unusedTreasures.remove(unusedMonsters.size()-1);
         
         return nextTreasure;
@@ -269,7 +269,7 @@ public class CardDealer {
             shuffleMonsters();
         }
         nextMonster = unusedMonsters.get(unusedMonsters.size()-1);
-        usedMonsters.add(unusedMonsters.get(unusedMonsters.size()-1));
+        giveMonsterBack(unusedMonsters.get(unusedMonsters.size()-1));
         unusedMonsters.remove(unusedMonsters.size()-1);
         return nextMonster;
       
