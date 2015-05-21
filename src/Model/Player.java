@@ -476,7 +476,7 @@ public class Player {
         return m.getBasicValue();
     }
     
-    public void copyPlayer(Player p ){
+    public Player(Player p ){
         dead = p.dead;
         name = p.name;
         level = p.level;

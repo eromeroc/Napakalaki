@@ -18,8 +18,7 @@ public class CultistPlayer extends Player{
     private Cultist myCultistCard;
     
     public CultistPlayer(Player p, Cultist c){
-        super("caca");
-        super.copyPlayer(p);
+        super(p);
         myCultistCard = c;
         totalCultistPlayer +=1;
     }

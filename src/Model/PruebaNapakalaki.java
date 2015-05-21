@@ -135,8 +135,8 @@ public class PruebaNapakalaki {
 //        System.out.println(p.computeGoldCoinsValue(visible));
 //        System.out.println(cul.toString());
 //        System.out.println(p.toString());
-//        
-//        //cul = (CultistPlayer) p;
+        
+        //cul = (CultistPlayer) p;
 //        p = cul;
         
         
