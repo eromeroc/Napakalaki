@@ -69,10 +69,11 @@ public class Player {
            level -= i;
     }
     
+    /***PRIVADO*****/
     /**
      * Asigna mal rollo al jugador
      */
-    private void setPendingBadConsequence(BadConsequence bq){
+    public void setPendingBadConsequence(BadConsequence bq){
         pendingBadConsequence = bq;     
     }
 
