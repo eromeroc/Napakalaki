@@ -2,6 +2,8 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import GUI.NapakalakiView;
+import GUI.PlayerNamesCapture;
 
 /**
  * @author Elena Romero y Marta Verona
@@ -13,7 +15,12 @@ public class PruebaNapakalaki {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    
+        NapakalakiView napakalakiView = new NapakalakiView();
+        
+        
+        ArrayList<String> names = new ArrayList<String>();
+        PlayerNamesCapture namesCapture= new PlayerNamesCapture(napakalakiView,true);
+        
         //PRUEBA CARDDEALER
         
 //        CardDealer cartas = CardDealer.getInstance();
