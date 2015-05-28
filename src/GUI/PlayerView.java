@@ -67,8 +67,8 @@ public class PlayerView extends javax.swing.JPanel {
     ArrayList<Treasure> output = new ArrayList();
     for (Component c : aPanel.getComponents()) {
         tv = (TreasureView) c;
-        if ( tv.isSelected() )
-  //          output.add ( tv.getTreasure() );
+    //    if ( tv.isSelected() )
+    //       output.add ( tv.getTreasure() );
     }
     return output;
 }
