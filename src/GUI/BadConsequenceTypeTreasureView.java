@@ -28,36 +28,10 @@ public class BadConsequenceTypeTreasureView extends javax.swing.JPanel {
         text.setText(bcTypeModel.getText());
         levels.setText(Integer.toString(bcTypeModel.getLevels()));
         
-        visibleTreasures.removeAll();
-        for (TreasureKind t : bcTypeModel.getSpecificVisibleTreasures()) {
-            TreasureView aTreasureView = new TreasureView();
-   //         aTreasureView.setTreasure (t);
-            aTreasureView.setVisible (true);
-  //          aPanel.add (aTreasureView);
-        }
-        
-        visibleTreasures.setText(Integer.toString(bcTypeModel.getnVisibleTreasures()));
-        hiddenTreasures.setText(Integer.toString(bcTypeModel.getnHiddenTreasures()));
-        
-        
+        visibleTreasures.setText(bcTypeModel.arrayToString(bcTypeModel.getSpecificVisibleTreasures()));
+        hiddenTreasures.setText(bcTypeModel.arrayToString(bcTypeModel.getSpecificHiddenTreasures()));
         
         repaint();
-    }
-    
-    public void fillTreasurePanel (JPanel aPanel, ArrayList<Treasure> aList) {
-        // Se elimina la información antigua
-        aPanel.removeAll();
-        // Se recorre la lista de tesoros construyendo y añadiendo sus vistas
-        // al panel
-        for (Treasure t : aList) {
-            TreasureView aTreasureView = new TreasureView();
-            aTreasureView.setTreasure (t);
-            aTreasureView.setVisible (true);
-            aPanel.add (aTreasureView);
-        }
-        // Se fuerza la actualización visual del panel
-        aPanel.repaint();
-        aPanel.revalidate();
     }
     
     /**
@@ -74,24 +48,30 @@ public class BadConsequenceTypeTreasureView extends javax.swing.JPanel {
         visibleTreasures = new javax.swing.JTextField();
         hiddenTreasures = new javax.swing.JTextField();
 
+        levels.setText("Niveles que pierdes:");
+
+        visibleTreasures.setText("Tesoros visibles que pierdes:");
+
+        hiddenTreasures.setText("Tesoros ocultos que pierdes:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(levels, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(156, 156, 156))
             .addGroup(layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(text, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
-                .addComponent(hiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(text, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(visibleTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                            .addComponent(hiddenTreasures)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(levels, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,10 +81,10 @@ public class BadConsequenceTypeTreasureView extends javax.swing.JPanel {
                 .addGap(32, 32, 32)
                 .addComponent(levels, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addComponent(visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(hiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(79, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

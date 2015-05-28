@@ -13,14 +13,25 @@ import Model.Treasure;
  */
 public class TreasureView extends javax.swing.JPanel {
 
+    final boolean select=false;
     /**
      * Creates new form TreasureView
      */
     public TreasureView() {
         initComponents();
+     //   select=false;
     }
 
     
+
+    public boolean isSelected(){
+        return select;
+    }
+ /*   
+    public Treasure getTreasure(){
+        
+    }
+    */
     
     /**
      * This method is called from within the constructor to initialize the form.

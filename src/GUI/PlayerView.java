@@ -5,7 +5,9 @@
  */
 package GUI;
 import Model.Player;
+import Model.Napakalaki;
 import Model.Treasure;
+import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JPanel;
         
@@ -15,6 +17,7 @@ import javax.swing.JPanel;
  */
 public class PlayerView extends javax.swing.JPanel {
     private Player playerModel;
+    private Napakalaki napakalakiModel;
     /**
      * Creates new form PlayerView
      */
@@ -50,6 +53,27 @@ public class PlayerView extends javax.swing.JPanel {
         aPanel.repaint();
         aPanel.revalidate();
     }
+    
+    public void setNapakalaki(Napakalaki napa){
+        napakalakiModel = napa;
+    }
+    
+    
+    public ArrayList<Treasure> getSelectedTreasures(JPanel aPanel) {
+// Se recorren los tesoros que contiene el panel,
+// almacenando en un vector aquellos que están seleccionados.
+// Finalmente se devuelve dicho vector.
+    TreasureView tv;
+    ArrayList<Treasure> output = new ArrayList();
+    for (Component c : aPanel.getComponents()) {
+        tv = (TreasureView) c;
+        if ( tv.isSelected() )
+  //          output.add ( tv.getTreasure() );
+    }
+    return output;
+}
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
