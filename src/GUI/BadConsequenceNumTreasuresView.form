@@ -18,58 +18,55 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
-                      <Component id="text" min="-2" pref="128" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="levels" min="-2" pref="163" max="-2" attributes="0"/>
+                      <Component id="text" min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="numVisibles" max="32767" attributes="0"/>
-                          <Component id="numHidden" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="numVisibles" min="-2" max="-2" attributes="0"/>
+                          <Component id="levels" min="-2" max="-2" attributes="0"/>
+                          <Component id="numHidden" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="36" pref="127" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Component id="text" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Component id="text" min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="levels" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="numVisibles" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="numHidden" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="83" max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="text">
+    <Component class="javax.swing.JLabel" name="text">
     </Component>
-    <Component class="javax.swing.JTextField" name="numVisibles">
+    <Component class="javax.swing.JLabel" name="levels">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Niveles que pierdes:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="numVisibles">
       <Properties>
         <Property name="text" type="java.lang.String" value="Numero de tesoros visibles que pierdes:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="numHidden">
+    <Component class="javax.swing.JLabel" name="numHidden">
       <Properties>
         <Property name="text" type="java.lang.String" value="Numero de tesoros ocultos que pierdes:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="levels">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nieveles que pierdes:"/>
       </Properties>
     </Component>
   </SubComponents>
