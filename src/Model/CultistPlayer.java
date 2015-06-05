@@ -19,6 +19,7 @@ public class CultistPlayer extends Player{
     
     public CultistPlayer(Player p, Cultist c){
         super(p);
+        myCultistCard=c;
         totalCultistPlayer +=1;
     }
  
