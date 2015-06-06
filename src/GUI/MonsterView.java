@@ -4,12 +4,15 @@
  * and open the template in the editor.
  */
 package GUI;
+import Model.Monster;
 
 /**
  *
  * @author usuario
  */
 public class MonsterView extends javax.swing.JFrame {
+    
+    private Monster monsterModel;
 
     /**
      * Creates new form MonsterView
@@ -30,10 +33,10 @@ public class MonsterView extends javax.swing.JFrame {
         name = new javax.swing.JLabel();
         combatLevel = new javax.swing.JLabel();
         levelAgainstCultist = new javax.swing.JLabel();
-        prizeView1 = new GUI.PrizeView();
-        badConsequenceDeathView1 = new GUI.BadConsequenceDeathView();
-        badConsequenceNumTreasuresView1 = new GUI.BadConsequenceNumTreasuresView();
-        badConsequenceTypeTreasureView1 = new GUI.BadConsequenceTypeTreasureView();
+        prizeView = new GUI.PrizeView();
+        bcDeathView = new GUI.BadConsequenceDeathView();
+        bcNumTreasuresView = new GUI.BadConsequenceNumTreasuresView();
+        bcTypeTreasureView = new GUI.BadConsequenceTypeTreasureView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,13 +59,13 @@ public class MonsterView extends javax.swing.JFrame {
                             .addComponent(combatLevel)
                             .addComponent(levelAgainstCultist))
                         .addGap(42, 42, 42)
-                        .addComponent(prizeView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(prizeView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(badConsequenceDeathView1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bcDeathView, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(badConsequenceNumTreasuresView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bcNumTreasuresView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addComponent(badConsequenceTypeTreasureView1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bcTypeTreasureView, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -78,60 +81,40 @@ public class MonsterView extends javax.swing.JFrame {
                         .addComponent(levelAgainstCultist))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(prizeView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(prizeView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(badConsequenceNumTreasuresView1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(badConsequenceTypeTreasureView1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(badConsequenceDeathView1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bcNumTreasuresView, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bcTypeTreasureView, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bcDeathView, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MonsterView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MonsterView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MonsterView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MonsterView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MonsterView().setVisible(true);
-            }
-        });
+    public void setMonster(Monster m){
+        monsterModel = m;
+        
+        name.setText(monsterModel.getName().toUpperCase());
+        combatLevel.setText("Nivel: " + Integer.toString(monsterModel.getCombatLevel()));
+        levelAgainstCultist.setText("Nivel contra sectario: " + Integer.toString(monsterModel.getLevelChangeAgainstCultistPlayer()));
+        
+        bcNumTreasuresView.setBadConsequenceNumTreasuresModel(monsterModel.getBadConsequence());
+        bcTypeTreasureView.setBadConsequenceTypeTreasureModel(monsterModel.getBadConsequence());
+        bcDeathView.setBadConsequenceDeathModel(monsterModel.getBadConsequence());
+        prizeView.setPrize(monsterModel.getPrize());
+        
+        repaint();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private GUI.BadConsequenceDeathView badConsequenceDeathView1;
-    private GUI.BadConsequenceNumTreasuresView badConsequenceNumTreasuresView1;
-    private GUI.BadConsequenceTypeTreasureView badConsequenceTypeTreasureView1;
+    private GUI.BadConsequenceDeathView bcDeathView;
+    private GUI.BadConsequenceNumTreasuresView bcNumTreasuresView;
+    private GUI.BadConsequenceTypeTreasureView bcTypeTreasureView;
     private javax.swing.JLabel combatLevel;
     private javax.swing.JLabel levelAgainstCultist;
     private javax.swing.JLabel name;
-    private GUI.PrizeView prizeView1;
+    private GUI.PrizeView prizeView;
     // End of variables declaration//GEN-END:variables
 }
