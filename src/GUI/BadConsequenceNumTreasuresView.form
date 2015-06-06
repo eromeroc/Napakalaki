@@ -25,20 +25,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="text" min="-2" pref="64" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="numVisibles" min="-2" max="-2" attributes="0"/>
-                          <Component id="levels" min="-2" max="-2" attributes="0"/>
-                          <Component id="numHidden" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="numVisibles" alignment="0" pref="102" max="32767" attributes="0"/>
+                          <Component id="levels" alignment="0" max="32767" attributes="0"/>
+                          <Component id="numHidden" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="text" min="-2" pref="64" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,13 +47,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="text" min="-2" pref="18" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="levels" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="numVisibles" min="-2" max="-2" attributes="0"/>
+              <Component id="levels" min="-2" pref="12" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="numHidden" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <Component id="numVisibles" min="-2" pref="15" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="numHidden" min="-2" pref="17" max="-2" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,19 +62,10 @@
     <Component class="javax.swing.JLabel" name="text">
     </Component>
     <Component class="javax.swing.JLabel" name="levels">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Niveles que pierdes:"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="numVisibles">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="N&#xba; tesoros visibles que pierdes:"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="numHidden">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="N&#xba; tesoros ocultos que pierdes:"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
