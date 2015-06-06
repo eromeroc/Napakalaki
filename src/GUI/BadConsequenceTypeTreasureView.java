@@ -48,6 +48,8 @@ public class BadConsequenceTypeTreasureView extends javax.swing.JPanel {
         visibleTreasures = new javax.swing.JLabel();
         hiddenTreasures = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         levels.setText("Niveles que pierdes:");
 
         visibleTreasures.setText("Tesoros visibles que pierdes:");
@@ -68,7 +70,7 @@ public class BadConsequenceTypeTreasureView extends javax.swing.JPanel {
                             .addComponent(visibleTreasures)
                             .addComponent(levels)
                             .addComponent(hiddenTreasures))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

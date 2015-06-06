@@ -44,6 +44,8 @@ public class BadConsequenceNumTreasuresView extends javax.swing.JPanel {
         numVisibles = new javax.swing.JLabel();
         numHidden = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         levels.setText("Niveles que pierdes:");
 
         numVisibles.setText("Numero de tesoros visibles que pierdes:");
@@ -78,7 +80,7 @@ public class BadConsequenceNumTreasuresView extends javax.swing.JPanel {
                 .addComponent(numVisibles)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(numHidden)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

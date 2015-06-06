@@ -1,15 +1,6 @@
 package Model;
 
 import java.util.ArrayList;
-import Model.Treasure;
-import Model.BadConsequence;
-import Model.TreasureKind;
-import Model.CardDealer;
-import Model.CombatResult;
-import Model.Dice;
-import Model.Prize;
-import Model.Monster;
-
 
 
 public class Player {
@@ -40,6 +31,9 @@ public class Player {
         return name;
     }
     
+    public int getLevel(){
+        return level;
+    }
     /**
      * Revive al jugador
      */
@@ -47,6 +41,9 @@ public class Player {
         dead = false;
     }
     
+    public BadConsequence getPendingBadConsequence(){
+        return pendingBadConsequence;
+    }
     /**
      * Aumenta el nivel del jugador
      * 1 <= level <= 10
@@ -286,7 +283,7 @@ public class Player {
         if(t.getType() == TreasureKind.BOTHHANDS && contador >0)
             canMakeVisible = false;
         
-    return canMakeVisible;        
+        return canMakeVisible;        
     }
     
     /**
