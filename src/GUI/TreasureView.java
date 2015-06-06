@@ -31,7 +31,13 @@ public class TreasureView extends javax.swing.JPanel {
     
     public void setTreasure(Treasure t) {
         treasureModel = t;
-        coins.setText("Monedas: " + Integer.toString(treasureModel.getGoldCoins()));
+        name.setText(treasureModel.getName().toUpperCase());
+        max.setText("Bonus max: " + Integer.toString(treasureModel.getMaxBonus()));
+        min.setText("Bonus min: " + Integer.toString(treasureModel.getMinBonus()));
+        coins.setText(Integer.toString(treasureModel.getGoldCoins()) + " monedas");
+        type.setText("Tipo: " + treasureModel.getType().toString());
+        
+        repaint();    
     }
  /*   
     public Treasure getTreasure(){
@@ -53,6 +59,8 @@ public class TreasureView extends javax.swing.JPanel {
         max = new javax.swing.JLabel();
         coins = new javax.swing.JLabel();
         type = new javax.swing.JLabel();
+
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         name.setText("Name");
 
@@ -76,7 +84,7 @@ public class TreasureView extends javax.swing.JPanel {
                     .addComponent(name)
                     .addComponent(max)
                     .addComponent(coins))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

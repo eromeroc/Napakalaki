@@ -38,7 +38,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,12 +68,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="numVisibles">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Numero de tesoros visibles que pierdes:"/>
+        <Property name="text" type="java.lang.String" value="N&#xba; tesoros visibles que pierdes:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="numHidden">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Numero de tesoros ocultos que pierdes:"/>
+        <Property name="text" type="java.lang.String" value="N&#xba; tesoros ocultos que pierdes:"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -25,9 +25,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="levels" min="-2" pref="77" max="-2" attributes="0"/>
-                  <Component id="treasures" min="-2" pref="63" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="levels" pref="77" max="32767" attributes="0"/>
+                  <Component id="treasures" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
@@ -47,8 +47,14 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="levels">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Levels"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="treasures">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Treasures"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

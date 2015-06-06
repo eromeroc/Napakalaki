@@ -30,17 +30,40 @@ public class NapakalakiView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        meetTheMonster = new javax.swing.JButton();
+        combat = new javax.swing.JButton();
+        nextTurn = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        meetTheMonster.setText("Meet the Monster");
+
+        combat.setText("Combat");
+
+        nextTurn.setText("Next Turn");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(meetTheMonster)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                .addComponent(combat)
+                .addGap(241, 241, 241)
+                .addComponent(nextTurn)
+                .addGap(66, 66, 66))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(287, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(meetTheMonster)
+                    .addComponent(nextTurn)
+                    .addComponent(combat))
+                .addGap(32, 32, 32))
         );
 
         pack();
@@ -58,5 +81,8 @@ public class NapakalakiView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton combat;
+    private javax.swing.JButton meetTheMonster;
+    private javax.swing.JButton nextTurn;
     // End of variables declaration//GEN-END:variables
 }

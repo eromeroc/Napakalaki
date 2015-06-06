@@ -48,9 +48,9 @@ public class BadConsequenceNumTreasuresView extends javax.swing.JPanel {
 
         levels.setText("Niveles que pierdes:");
 
-        numVisibles.setText("Numero de tesoros visibles que pierdes:");
+        numVisibles.setText("Nº tesoros visibles que pierdes:");
 
-        numHidden.setText("Numero de tesoros ocultos que pierdes:");
+        numHidden.setText("Nº tesoros ocultos que pierdes:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -67,7 +67,7 @@ public class BadConsequenceNumTreasuresView extends javax.swing.JPanel {
                             .addComponent(numVisibles)
                             .addComponent(levels)
                             .addComponent(numHidden))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
