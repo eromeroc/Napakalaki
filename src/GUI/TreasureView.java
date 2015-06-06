@@ -13,6 +13,7 @@ import Model.Treasure;
  */
 public class TreasureView extends javax.swing.JPanel {
 
+    private Treasure treasureModel;
     final boolean select=false;
     /**
      * Creates new form TreasureView
@@ -26,6 +27,11 @@ public class TreasureView extends javax.swing.JPanel {
 
     public boolean isSelected(){
         return select;
+    }
+    
+    public void setTreasure(Treasure t) {
+        treasureModel = t;
+        coins.setText("Monedas: " + Integer.toString(treasureModel.getGoldCoins()));
     }
  /*   
     public Treasure getTreasure(){
@@ -42,23 +48,61 @@ public class TreasureView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        name = new javax.swing.JLabel();
+        min = new javax.swing.JLabel();
+        max = new javax.swing.JLabel();
+        coins = new javax.swing.JLabel();
+        type = new javax.swing.JLabel();
+
+        name.setText("Name");
+
+        min.setText("BonusMin");
+
+        max.setText("BonusMax");
+
+        coins.setText("Coins");
+
+        type.setText("Type");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(type)
+                    .addComponent(min)
+                    .addComponent(name)
+                    .addComponent(max)
+                    .addComponent(coins))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(name)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(min)
+                .addGap(11, 11, 11)
+                .addComponent(max, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(coins)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(type)
+                .addGap(31, 31, 31))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel coins;
+    private javax.swing.JLabel max;
+    private javax.swing.JLabel min;
+    private javax.swing.JLabel name;
+    private javax.swing.JLabel type;
     // End of variables declaration//GEN-END:variables
 
-    void setTreasure(Treasure t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

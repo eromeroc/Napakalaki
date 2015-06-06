@@ -137,7 +137,7 @@ public class Player {
         float goldCoinsValue = 0;
         
         for(Treasure treasure: t){
-            goldCoinsValue += treasure.getGolCoind();
+            goldCoinsValue += treasure.getGoldCoins();
         }
         
         return goldCoinsValue/1000;  

@@ -45,7 +45,7 @@ public class CultistPlayer extends Player{
         float goldCoinsValue = 0;
         
         for(Treasure treasure: t){
-            goldCoinsValue += treasure.getGolCoind();
+            goldCoinsValue += treasure.getGoldCoins();
         }
         goldCoinsValue *=2;
         return goldCoinsValue/1000;  

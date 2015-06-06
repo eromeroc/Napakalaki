@@ -15,11 +15,20 @@ public class PruebaNapakalaki {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Napakalaki napakalakiModel = Napakalaki.getInstance();
         NapakalakiView napakalakiView = new NapakalakiView();
-        
-        
         ArrayList<String> names = new ArrayList<String>();
         PlayerNamesCapture namesCapture= new PlayerNamesCapture(napakalakiView,true);
+        
+        napakalakiView.setNapakalaki(napakalakiModel);
+        Dice.createInstance(napakalakiView);
+        
+        names = namesCapture.getNames();
+        napakalakiModel.initGame(names);
+        
+        napakalakiView.showView();
+        
+        
         
         //PRUEBA CARDDEALER
         

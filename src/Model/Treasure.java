@@ -27,7 +27,7 @@ public class Treasure implements Card{
     public String getName(){
         return name;
     }
-    public int getGolCoind(){
+    public int getGoldCoins(){
         return goldCoins;
     }
     public int getMinBonus() {
