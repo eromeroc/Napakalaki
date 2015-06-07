@@ -79,6 +79,19 @@ public abstract class BadConsequence {
     
     public abstract BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h);
     
+    public String arrayToString(ArrayList<TreasureKind> kindList){
+        String aux = " ";
+        
+        if(kindList.isEmpty()){
+            aux = "Ninguno";
+        }
+        else{
+            for(TreasureKind k: kindList){
+                aux+= k.toString() + ", ";
+            }
+        }
+        return aux;
+    }
    
     public abstract String toString();
     

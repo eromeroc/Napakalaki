@@ -55,8 +55,8 @@ public class Dice extends JDialog {
     };
   
   public int nextNumber () {
-    return nextNumber ("Puedes llamar al método",
-            "Pasándole 2 cadenas como parámetros");
+    return nextNumber ("Suerte!",
+            ":)");
     
   }
   public int nextNumber (String message1, String message2) {

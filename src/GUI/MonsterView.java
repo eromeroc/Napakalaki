@@ -100,8 +100,9 @@ public class MonsterView extends javax.swing.JFrame {
         combatLevel.setText("Nivel: " + Integer.toString(monsterModel.getCombatLevel()));
         levelAgainstCultist.setText("Nivel contra sectario: " + Integer.toString(monsterModel.getLevelChangeAgainstCultistPlayer()));
         
+        
         bcNumTreasuresView.setBadConsequenceNumTreasuresModel(monsterModel.getBadConsequence());
-        bcTypeTreasureView.setBadConsequenceTypeTreasureModel(monsterModel.getBadConsequence());
+        bcTypeTreasureView.setBadConsequenceTypeTreasuresModel(monsterModel.getBadConsequence());
         bcDeathView.setBadConsequenceDeathModel(monsterModel.getBadConsequence());
         prizeView.setPrize(monsterModel.getPrize());
         

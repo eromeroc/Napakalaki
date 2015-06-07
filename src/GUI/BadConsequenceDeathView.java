@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package GUI;
+import Model.BadConsequence;
 import Model.BadConsequenceDeath;
 /**
  *
  * @author sagrario
  */
 public class BadConsequenceDeathView extends javax.swing.JPanel {
-    private BadConsequenceDeath bcDeathModel;
+    private BadConsequence bcDeathModel;
     /**
      * Creates new form BadConsequenceDeathView
      */
@@ -18,7 +19,7 @@ public class BadConsequenceDeathView extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void setBadConsequenceDeathModel(BadConsequenceDeath bc){
+    public void setBadConsequenceDeathModel(BadConsequence bc){
         bcDeathModel = bc;
         
         text.setText(bcDeathModel.getText());

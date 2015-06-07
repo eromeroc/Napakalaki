@@ -79,19 +79,7 @@ public class BadConsequenceTypeTreasures extends BadConsequence{
             return false;
     }
         
-    public String arrayToString(ArrayList<TreasureKind> kindList){
-        String aux = " ";
-        
-        if(kindList.isEmpty()){
-            aux = "Ninguno";
-        }
-        else{
-            for(TreasureKind k: kindList){
-                aux+= k.toString() + ", ";
-            }
-        }
-        return aux;
-    }
+    
     
     public String toString(){
         return " " +text+ "\n\t\tNiveles que se pierden: " +Integer.toString(levels)

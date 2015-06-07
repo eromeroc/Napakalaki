@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
+import Model.BadConsequence;
 import Model.BadConsequenceTypeTreasures;
 import Model.Treasure;
 import Model.TreasureKind;
@@ -14,7 +15,7 @@ import javax.swing.JPanel;
  * @author sagrario
  */
 public class BadConsequenceTypeTreasureView extends javax.swing.JPanel {
-    BadConsequenceTypeTreasures bcTypeModel;
+    BadConsequence bcTypeModel;
     /**
      * Creates new form BadConsequenceTypeTreasureView
      */
@@ -22,7 +23,7 @@ public class BadConsequenceTypeTreasureView extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void setBadConsequenceTypeTreasuresModel(BadConsequenceTypeTreasures bc){
+    public void setBadConsequenceTypeTreasuresModel(BadConsequence bc){
         bcTypeModel = bc;
         
         text.setText(bcTypeModel.getText());
