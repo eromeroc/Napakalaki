@@ -46,22 +46,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
-                      <Component id="name" min="-2" pref="82" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="visibleTreasures" min="-2" pref="147" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       <Component id="hiddenTreasures" min="-2" pref="147" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="level" max="32767" attributes="0"/>
-                          <Component id="combatLevel" min="-2" pref="49" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -70,6 +59,14 @@
                       <Component id="MakeVisible" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="DiscardTreasures" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="combatLevel" min="-2" pref="65" max="-2" attributes="0"/>
+                          <Component id="name" min="-2" pref="82" max="-2" attributes="0"/>
+                          <Component id="level" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace pref="18" max="32767" attributes="0"/>
@@ -149,10 +146,19 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="name">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="NAME"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="level">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="level"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="combatLevel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="combatLevel"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

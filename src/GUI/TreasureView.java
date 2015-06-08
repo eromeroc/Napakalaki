@@ -14,13 +14,12 @@ import Model.Treasure;
 public class TreasureView extends javax.swing.JPanel {
 
     private Treasure treasureModel;
-    final boolean select=false;
+    private boolean select=false;
     /**
      * Creates new form TreasureView
      */
     public TreasureView() {
         initComponents();
-     //   select=false;
     }
 
     
@@ -39,11 +38,11 @@ public class TreasureView extends javax.swing.JPanel {
         
         repaint();    
     }
- /*   
+  
     public Treasure getTreasure(){
-        
+        return treasureModel;
     }
-    */
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,7 +59,13 @@ public class TreasureView extends javax.swing.JPanel {
         coins = new javax.swing.JLabel();
         type = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 153, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         name.setText("Name");
 
@@ -102,6 +107,19 @@ public class TreasureView extends javax.swing.JPanel {
                 .addGap(31, 31, 31))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        if(select){
+            select = false;
+            setOpaque(false);
+        }
+        else{
+            select = true;
+            setOpaque(true);
+        }
+        repaint();
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
